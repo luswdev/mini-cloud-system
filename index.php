@@ -4,57 +4,36 @@ session_start();
 
 if (!$_SESSION['valid']){
 	$_SESSION['state']='guest';
-	header("Location:/login.php");
+	echo "<script>window.location.assign('/logout.php');</script>";
 }
-
 
 $_SESSION['pwd']= '/'; 
 ?>
 <html>
-<head>
-	<title>OMU Cloud</title>
-	<meta name="theme-color" content="#37474F">
-	<meta name="viewport" content="width=device-width, user-scalable=no" />
-	<link rel="stylesheet" type="text/css" href="assert/main.css">	
-	<link rel="stylesheet" type="text/css" href="assert/helper.css">
-	<link rel="stylesheet" type="text/css" href="assert/outline.css?ver=12">
-	<link href="https://fonts.googleapis.com/css?family=Germania+One|Open+Sans" rel="stylesheet">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">	
-</head>
+	<?php include_once('_partial/head.php'); ?>
 <body >
 	
-	<?php include_once('info_block.php'); ?>
-
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script src="assert/effect.js"></script>
-
-	<header>
-		<form class="search-box" action='search.php' method='post'>
-			<div class="search-box-container">
-				<input type="text" name="search_file" id="search-file" class="search-input" placeholder="Search file">
-				<button class="search-go" type='submit'><i class="fas fa-search"></i></button>
-			</div>
-		</form>
-	</header>
+	<?php include_once('_partial/info_block.php'); ?>
+	<?php include_once('_partial/header.php'); ?>
 
 	<div class="main">
 		<div class="download-check-box">
 			<h4></h4>
 			<div class="download-check-btn-box">
-				<button class="check-btn"><a>Yes</a></button>
-				<button class="check-btn">No</button>
+				<button class="check-btn"  onclick="close_box()"><a>Yes</a></button>
+				<button class="check-btn"  onclick="close_box()">No</button>
 			</div>
 		</div>
 		<div class="delete-check-box">
 			<h4></h4>
 			<div class="delete-check-btn-box">
-				<button class="check-btn"><a onclick="close_box()">Yes</a></button>
-				<button class="check-btn" onclick="close_box()">No</button>
+				<button class="check-btn"><a>Yes</a></button>
+				<button class="check-btn">No</button>
 			</div>
 		</div>
 		
 		<div class="file-upload-box">
-			<form class="file-upload" method="post" action="/upload.php" method="post" enctype="multipart/form-data">
+			<form class="file-upload" method="post" action="_partial/upload.php" method="post" enctype="multipart/form-data">
 				<h4>Select file to upload:</h4>
 				<div class="file-location-box">
 					<span class="file-location"></span>
@@ -82,6 +61,7 @@ $_SESSION['pwd']= '/';
 					<i class="fas fa-sign-out-alt"></i>
 				</button>
 			</div>
+			
 			<div class="container">
 				<table class='animate-up file-lists '>
 					<thead>
@@ -108,7 +88,7 @@ $_SESSION['pwd']= '/';
 						<?php
 						if ($handle = scandir('.')) {
 							foreach ($handle as $key => $file)  {
-								if ($file != "." && $file != ".." && $file[0]!="." && !preg_match("/[a-zA-Z0-9]?\.php/", $file) && $file != "assert"){
+								if ($file != "." && $file != ".." && $file[0]!="." && !preg_match("/[a-zA-Z0-9]?\.php/", $file) && $file[0] != "_"){
 									echo "<tr class='animate-up'>";
 									if (preg_match("/[cChH]$/", $file))
 										$icon='far fa-file-code';
@@ -142,10 +122,8 @@ $_SESSION['pwd']= '/';
 				</table>
 			</div>
 		</div>
-
-		<footer>
-			&copy; 2019 OMU Skywalker
-		</footer>
+		
+		<?php include_once('_partial/footer.php'); ?>				
 	</div>
 </body>
 </html>

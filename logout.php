@@ -31,20 +31,12 @@ header('Refresh: 2; URL=/login.php')
 ?>
 <html>
 <head>
-	<title>Bye Bye</title>
-	<meta name="theme-color" content="#37474F">
-	<meta name="viewport" content="width=device-width, user-scalable=no">
-	<link rel="stylesheet" type="text/css" href="assert/main.css">
-	<link rel="stylesheet" type="text/css" href="assert/helper.css">
-	<link rel="stylesheet" type="text/css" href="assert/outline.css">
-	<link href="https://fonts.googleapis.com/css?family=Germania+One|Open+Sans" rel="stylesheet">
+	<?php include_once('_partial/head.php'); ?>
 </head>
 <body>
 	<div class="logout-text">
 		Login out
 		<span id="dot">.</span>
 	</div>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script src="assert/effect.js"></script>
 </body>
 </html>

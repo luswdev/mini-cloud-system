@@ -4,37 +4,20 @@ session_start();
 
 if (!$_SESSION['valid']){
 	$_SESSION['state']='guest';
-	header("Location:/login.php");
+	echo "<script>window.location.assign('/logout.php');</script>";
 }
 
 $_SESSION['pwd']= $_GET['links']; 
 ?>
 <html>
 <head>
-	<title>OMU Cloud</title>
-	<meta name="theme-color" content="#37474F">
- 	<meta name="viewport" content="width=device-width, user-scalable=no" />
-	<link rel="stylesheet" type="text/css" href="assert/main.css?ver=122">
-	<link rel="stylesheet" type="text/css" href="assert/helper.css?ver=122">
-	<link rel="stylesheet" type="text/css" href="assert/outline.css?ver=122">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Germania+One" rel="stylesheet">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">	
+	<?php include_once('_partial/head.php'); ?>
 </head>
 <body>
 
-	<?php include_once('info_block.php'); ?>
-
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script src="assert/effect.js"></script>
-
-	<header>
-		<form class="search-box" action='search.php' method='post'>
-			<div class="search-box-container">
-				<input type="text" name="search_file" id="search-file" class="search-input" placeholder="Search file">
-				<button class="search-go"><i class="fas fa-search"></i></button>
-			</div>
-		</form>
-	</header>
+	<?php include_once('_partial/info_block.php'); ?>
+	
+	<?php include_once('_partial/header.php'); ?>
 
 	<div class="main">
 		<div class="download-check-box">
@@ -54,7 +37,7 @@ $_SESSION['pwd']= $_GET['links'];
 		</div>
 
 		<div class="file-upload-box">
-			<form method="post" action="/upload.php" enctype="multipart/form-data">
+			<form method="post" action="_partial/upload.php" enctype="multipart/form-data">
 				<h4>Select file to upload:</h4>
 				<div class="file-location-box">
 					<span class="file-location"></span>
@@ -150,9 +133,8 @@ $_SESSION['pwd']= $_GET['links'];
 				</table>
 			</div>
 		</div>
-		<footer>
-			&copy; 2019 OMU Skywalker
-		</footer>
+
+		<?php include_once('_partial/footer.php'); ?>				
 	</div>
 </body>
 </html>

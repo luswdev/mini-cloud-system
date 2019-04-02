@@ -4,23 +4,12 @@ session_start();
 ?>
 
 <html>
-<head>
-	<title>sign in</title>
-	<meta name="theme-color" content="#37474F">
-	<meta name="viewport" content="width=device-width, user-scalable=no">
-	<link rel="stylesheet" type="text/css" href="assert/main.css">
-	<link rel="stylesheet" type="text/css" href="assert/helper.css">
-	<link rel="stylesheet" type="text/css" href="assert/outline.css">
-	<link href="https://fonts.googleapis.com/css?family=Germania+One|Open+Sans" rel="stylesheet">
-</head>
+	<?php include_once('_partial/head.php'); ?>
 <body>
 	<div class="logout-text">
 		Sign in
 		<span id="dot">.</span>
 	</div>
-
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script src="assert/effect.js"></script>
 
 	<?php
 	define('BOT_TOKEN', '868385679:AAHea69gcXkC19t85sCx7BUbgFhWWCqpdQc');
