@@ -69,25 +69,6 @@ $(document).ready(function() {
 			return false;
 	});	
 
-	/*$('.ready-upload-btn').on('click', function(){
-		var fd = new FormData(this);
-		fd.append('file',$('#fileToUpload')[0].files[0]);
-
-		$.ajax({
-			method:"POST",
-			url:"upload.php",    
-			data: fd,  
-			cache: false,
-			contentType: false,
-			processData: false,
-		
-			success: function(php_script_response){
-				alert(php_script_response); // display response from the PHP script, if any
-			}
-		});
-		//return false;
-	});*/
-
 	$('.logout-btn').click( function(){
 		window.location.assign('/logout.php');
 	});

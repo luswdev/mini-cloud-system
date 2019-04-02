@@ -17,13 +17,8 @@ if (!$_SESSION['valid']){
 	<?php include_once('_partial/header.php'); ?>
 
 	<div class="main">
-		<div class="download-check-box">
-			<h4></h4>
-			<div class="download-check-btn-box">
-				<button class="check-btn"><a onclick="close_box()">Yes</a></button>
-				<button class="check-btn" onclick="close_box()">No</button>
-			</div>
-		</div>
+		
+		<?php include_once('_widgets/download_box.php'); ?>
 
 		<div class="main-inner">
 		

@@ -17,37 +17,10 @@ $_SESSION['pwd']= '/';
 	<?php include_once('_partial/header.php'); ?>
 
 	<div class="main">
-		<div class="download-check-box">
-			<h4></h4>
-			<div class="download-check-btn-box">
-				<button class="check-btn"  onclick="close_box()"><a>Yes</a></button>
-				<button class="check-btn"  onclick="close_box()">No</button>
-			</div>
-		</div>
-		<div class="delete-check-box">
-			<h4></h4>
-			<div class="delete-check-btn-box">
-				<button class="check-btn"><a>Yes</a></button>
-				<button class="check-btn">No</button>
-			</div>
-		</div>
-		
-		<div class="file-upload-box">
-			<form class="file-upload" method="post" action="_partial/upload.php" method="post" enctype="multipart/form-data">
-				<h4>Select file to upload:</h4>
-				<div class="file-location-box">
-					<span class="file-location"></span>
-				</div>
-				<label class="file-upload-btn">
-					<input type="file" name="fileToUpload" id="fileToUpload" style="display:none;">
-					<span>Choose</span> 
-				</label>
-				<div>
-					<button class="ready-upload-btn" type='submit'>Upload</button>
-					<button class="close-upload-btn">Cancel</button>
-				</div>
-			</form>
-		</div>
+
+		<?php include_once('_widgets/download_box.php'); ?>
+		<?php include_once('_widgets/delete_box.php'); ?>
+		<?php include_once('_widgets/upload_box.php'); ?>
 
 		<div class="main-inner">
 		
@@ -61,7 +34,7 @@ $_SESSION['pwd']= '/';
 					<i class="fas fa-sign-out-alt"></i>
 				</button>
 			</div>
-			
+
 			<div class="container">
 				<table class='animate-up file-lists '>
 					<thead>
