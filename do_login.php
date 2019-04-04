@@ -8,7 +8,17 @@ session_start();
 <body>
 	<div class="logout-text">
 		Sign in
-		<span id="dot">.</span>
+		<div class="loading">
+			Bye
+			<div class="obj"></div>
+			<div class="obj"></div>
+			<div class="obj"></div>
+			<div class="obj"></div>
+			<div class="obj"></div>
+			<div class="obj"></div>
+			<div class="obj"></div>
+			<div class="obj"></div>
+    	</div>
 	</div>
 
 	<?php
@@ -16,7 +26,7 @@ session_start();
 	define('API_URL', 'https://api.telegram.org/bot'.BOT_TOKEN.'/');
 	$chatID = 460873343;
 
-	$mysqli = new mysqli('localhost', 'callumlu', 'callum1996', 'cloud_db');
+	include_once('_partial/db.php');
 
 	$sql = "SELECT DECODE(passwd, 'dcdclab') FROM users_list WHERE account = ?";
 	$stmt = $mysqli->prepare($sql);

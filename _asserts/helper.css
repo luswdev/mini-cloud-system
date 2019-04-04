@@ -56,10 +56,12 @@
 	}
 
 	input#search-file {
-		width: 70%;
-		border-top-right-radius: 5px;
-		border-bottom-right-radius: 5px;
+		width: 50%;
 		margin-left: -1px;
+	}
+
+	input#search-file:focus {
+		width: 70%;
 	}
 
 	.search-go {
@@ -71,8 +73,6 @@
 		display: block;
 		left: 0;
 		right: 0;
-		border-top-left-radius: 5px;
-		border-bottom-left-radius: 5px;
 		width: 6em;
 	}
 
@@ -85,4 +85,28 @@
 	.main-inner {
 		width: 90%;
 	}
+
+	.logout-text{
+		font-size: 2em
+	}
 } 
+
+@media only screen and (max-width: 1200px) and (min-width: 770px){
+    h1 {
+        font-size: 120px;
+    }
+}
+
+@media only screen and (max-width: 769px){
+    h1 {
+        padding-top: 1em;
+        font-size: 50px;
+        letter-spacing: 10px;
+    }
+}
+
+@media only screen and (max-width: 320px){
+    h1 {
+        font-size: 30px;
+    }
+}

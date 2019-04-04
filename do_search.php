@@ -20,17 +20,18 @@ if (!$_SESSION['valid']){
 		
 		<?php include_once('_widgets/download_box.php'); ?>
 
-		<div class="main-inner">
+		<div class="main-inner animate-up">
 		
-			<div class="lists-pwd animate-up">
+			<div class="lists-pwd">
 				<span class="pwd">Searching '<span class="match"><?php echo $_POST['search_file'] ?></span>', total <span class="result-cnt"></span> result(s).</span>
 
-				<button class="home-btn">
+				<button class="home-btn" onclick="javascript:window.location='/'">
 					<i class="fas fa-home"></i>
 				</button>
 				<button class="search-back-btn">
 					<i class="fas fa-level-up-alt"></i>
 				</button>
+				
 				<script>
 					$('.search-back-btn').click( function(){
 						var pwd = '<?php echo $_SESSION['pwd'] ?>';
@@ -44,12 +45,12 @@ if (!$_SESSION['valid']){
 					});
 				</script>
                 
-				<button class="logout-btn">
+				<button class="logout-btn" onclick="javascript:window.location='logout.php'">
 					<i class="fas fa-sign-out-alt"></i>
 				</button>
 			</div>
 			<div class="container">
-				<table class='animate-up file-lists '>
+				<table class='file-lists'>
 					<thead>
 						<tr class='animate-up'>
 							<th class='type'>
@@ -77,20 +78,9 @@ if (!$_SESSION['valid']){
 						
                         function searching_file($target_dir, $targer_file){
                             if ($handle = scandir($target_dir)) {
-                            	foreach ($handle as $key => $file)  {
+                            	foreach ($handle as $file)  {
                                     if (strstr($file, $targer_file)) {
                                         echo "<tr class='animate-up'>";
-        
-                                        if (preg_match("/[cChH]$/", $file))
-                                            $icon='far fa-file-code';
-                                        else if (preg_match("/txt$/", $file))
-                                            $icon='far fa-file-alt';
-                                        else if (preg_match("/git$/", $file))
-                                            $icon='fab fa-git-square';
-                                        else if (preg_match("/md$/", $file))
-                                            $icon='fab fa-markdown';
-                                        else
-                                            $icon='fas fa-file';
         
                                         $notmatchstr = str_replace($targer_file, "<span class='match'>$targer_file</span>", $file);
 
@@ -100,7 +90,7 @@ if (!$_SESSION['valid']){
                                             echo "<td class='download'></td>";
                                         }
                                         else {
-                                            echo "<td class='icon icon-file'><i class='$icon'></i></td>";
+                                            echo "<td class='icon icon-file'><i class='fas fa-file-alt'></i></td>";
                                             echo "<td class='name'><a href='$target_dir/$file' target='_blank'>$notmatchstr</span></a></td>";
                                             echo "<td class='download' onclick='open_box(`$target_dir/$file`)'><i class='fas fa-cloud-download-alt'></i></td>";
                                         }

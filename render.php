@@ -24,9 +24,9 @@ $_SESSION['pwd']= $_GET['links'];
 		<?php include_once('_widgets/delete_box.php'); ?>
 		<?php include_once('_widgets/upload_box.php'); ?>
 
-		<div class="main-inner">
+		<div class="main-inner animate-up">
 
-			<div class="lists-pwd animate-up">
+			<div class="lists-pwd">
 				<button class="upload-btn">
 					<i class="fas fa-cloud-upload-alt"></i>
 				</button>
@@ -39,13 +39,13 @@ $_SESSION['pwd']= $_GET['links'];
 					<button class="back-btn">
 						<i class="fas fa-level-up-alt"></i>
 					</button>
-					<button class="logout-btn">
+					<button class="logout-btn" onclick="javascript:window.location='logout.php'">
 						<i class="fas fa-sign-out-alt"></i>
 					</button>
 			</div>
 
 			<div class="container">
-				<table class='animate-up file-lists'>
+				<table class='file-lists'>
 					<thead>
 						<tr class='animate-up'>
 							<th class='type'>
@@ -70,19 +70,9 @@ $_SESSION['pwd']= $_GET['links'];
 					<?php
 					$pwd = $_GET['links'];
 					if ($handle = scandir($pwd)) {
-						foreach ($handle as $key => $file) {
+						foreach ($handle as $file) {
 							if ($file != "." && $file != ".." && $file[0]!=".") {
 								echo "<tr class='animate-up'>";
-								if (preg_match("/[cChH]$/", $file))
-										$icon='far fa-file-code';
-									else if (preg_match("/txt$/", $file))
-										$icon='far fa-file-alt';
-									else if (preg_match("/git$/", $file))
-										$icon='fab fa-git-square';
-									else if (preg_match("/md$/", $file))
-										$icon='fab fa-markdown';
-									else
-										$icon='fas fa-file';
 
 								if (is_dir($pwd.'/'.$file)){
 									echo "<td class='icon icon-folder'><i class='fas fa-folder'></i></td>";
@@ -90,7 +80,7 @@ $_SESSION['pwd']= $_GET['links'];
 									echo "<td class='download'></td>";
 								}
 								else {
-									echo "<td class='icon icon-file'><i class='$icon'></i></td>";
+									echo "<td class='icon icon-file'><i class='fas fa-file-alt'></i></td>";
 									echo "<td class='name'><a href='$pwd/$file'>$file</a></td>";
 									echo "<td class='download' onclick='open_box(`$pwd/$file`)'><i class='fas fa-cloud-download-alt'></i></td>";
 								}

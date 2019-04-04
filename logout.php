@@ -13,7 +13,8 @@ else{
 
 	$_SESSION['state']='logout';
 
-	$mysqli = new mysqli('localhost', 'callumlu', 'callum1996', 'cloud_db');
+	include_once('_partial/db.php');
+
 	$sql = "UPDATE `login_log` SET `logout_time` = ? WHERE `login_id` = ? ";
 	$stmt = $mysqli->prepare($sql);
 	$times=date("Y-n-d H:i:s");
@@ -35,8 +36,18 @@ header('Refresh: 2; URL=/login.php')
 </head>
 <body>
 	<div class="logout-text">
-		Login out
-		<span id="dot">.</span>
+		
+		<div class="loading">
+			Bye
+			<div class="obj"></div>
+			<div class="obj"></div>
+			<div class="obj"></div>
+			<div class="obj"></div>
+			<div class="obj"></div>
+			<div class="obj"></div>
+			<div class="obj"></div>
+			<div class="obj"></div>
+    	</div>
 	</div>
 </body>
 </html>

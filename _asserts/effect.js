@@ -1,10 +1,9 @@
 $(document).ready(function() {
 	var now_page = window.location.pathname;
+	var should_sort = ['/', '/render.php', '/do_search.php'];
 
-	if ((now_page == '/') || (now_page=='/render.php') || (now_page=='/search.php') )
+	if (should_sort.indexOf(now_page) != -1)
 		sort_table(1);
-	else if (now_page == '/logout.php' || now_page == '/do_login.php')
-		setInterval(run_dot,500);
 
 	if (now_page == '/login.php')
 		$('.main').animate({opacity: 1, bottom: 0},700);
@@ -16,8 +15,7 @@ $(document).ready(function() {
 
 	$.when(
 		$('h1').animate({opacity: 1, top: 0},700),
-		$('.lists-pwd').animate({opacity: 1, bottom: 0},700),
-		$('table').animate({opacity: 1, bottom: 0},700)
+		$('.main-inner').animate({opacity: 1, bottom: 0},700),
 	)
 	.then(
 		function(){
@@ -30,7 +28,9 @@ $(document).ready(function() {
 		return $(currentValue).delay(index*20+100).animate({ opacity: 1 }).promise();
 	})
 
-	setTimeout(close_info_block, 3000);
+	setTimeout( function() {
+			$('.info-block').animate({opacity: 0, top: -50},700);
+	}, 3000);
 
 	$('td.name a').each( function() {
 		if($(this).text().length > 25){
@@ -40,20 +40,13 @@ $(document).ready(function() {
 		}
 	});
 
-	$('.profix-menu-toggle').click( function(){
-		console.log('click');
-		$(this).toggleClass('profix-menu-toggle-on');
-		$('.profix-menu').toggleClass('profix-menu-on');
-	});
-
 	$('.login').click( function() {
-		var flag=true;
-		if(!$('.account-box input').val()){
-			$('.account-box input').attr('required',true);
-		}
-		if(!$('.password-box input').val()){
-			$('.password-box input').attr('required',true);
-			flag=false;
+		var flag = true;
+
+		if(!$('.account-box input').val() || !$('.password-box input').val()){
+			$('input').attr('required',true);
+			$('.login').attrA
+			flag = false;
 		}
 
 		return flag;
@@ -69,10 +62,6 @@ $(document).ready(function() {
 			return false;
 	});	
 
-	$('.logout-btn').click( function(){
-		window.location.assign('/logout.php');
-	});
-
 	$('.back-btn').click( function(){
 		var nowurl = location.search;
 		var pwd = nowurl.split('?')[1].split('=')[1];
@@ -86,15 +75,12 @@ $(document).ready(function() {
 		}
 		
 	});
-
-	$('.home-btn').click( function(){
-		window.location.href = '/';
-	});
 	
 	var $which_delete;
 	
-	$('.icon').click( function(){
+	$('.icon-file').click( function(){
 		$('.delete-check-box').addClass('delete-check-box-on');
+		$('.main-inner, header, footer').addClass('disable');
 		$('.delete-check-box h4').text('Delete "' + $(this).parent().children('.name').text() + '" ?');
 
 		$which_delete = $(this).parent();
@@ -102,6 +88,7 @@ $(document).ready(function() {
 	});
 
 	$('.delete-check-box .check-btn:last-child').click( function(){
+		$('.main-inner, header, footer').removeClass('disable');
 		$('.delete-check-box').removeClass('delete-check-box-on');
 	});
 
@@ -124,10 +111,6 @@ $(document).ready(function() {
 		location.reload();
 	});
 });
-
-function close_info_block(){
-	$('.info-block').animate({opacity: 0, top: -50},700);
-}
 
 function run_dot(){
 	var dots=document.getElementById('dot');
@@ -196,11 +179,6 @@ function sort_table(n){
 		th.classList.add('dec');
 	}
 
-}
-
-function download_file(file){
-	file='https://file.omuskywalker.com/'+file;
-	$.fileDownload(file);
 }
 
 function close_box() {

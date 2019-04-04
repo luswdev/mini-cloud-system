@@ -16,7 +16,7 @@ if ($_SESSION['valid'])
 
 	<header>
 		<a href='/'>
-			<h1 class="cloud-title animate-down">OMU</h1>
+			<h1 class="cloud-title animate-down">Sign in</h1>
 		</a>
 	</header>
 	<div class="main animate-up">
@@ -25,16 +25,18 @@ if ($_SESSION['valid'])
 			
 			<form class="login-block" role="form" action="/do_login.php" method='post'>
 				<div class="account-box">
-					<i class="fas fa-user"></i>
 					<input type="text" placeholder="Account" name="account" autofocus="autofocus" autocapitalize="none" autocomplete="off" >
 				</div>
 				<div class="password-box">
-					<i class="fas fa-lock"></i>
 					<input type="password" placeholder="Password" name="password" >
 				</div>
-				<button class="login" name="login">
-					sign in
-				</button>
+				<div class="submit-box">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<input type="submit" class="login" value="sign in" name="login"></input>
+				</div>
 			</form>
 		</div>
 

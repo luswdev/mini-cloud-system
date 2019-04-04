@@ -6,7 +6,7 @@
 		</div>
 		<label class="file-upload-btn">
 			<input type="file" name="fileToUpload" id="fileToUpload" style="display:none;">
-			<span>Choose</span> 
+			Pick
 		</label>
 		<div>
 			<button class="ready-upload-btn" type='submit'>Upload</button>

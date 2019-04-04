@@ -57,7 +57,8 @@ else {
 }
 
 if ($content["callback_query"]){
-    $mysqli = new mysqli('localhost', 'callumlu', 'callum1996', 'cloud_db');
+
+	include_once('_partial/db.php');
     
     switch ($content["callback_query"]['data']){
         case "success":

@@ -5,6 +5,7 @@
 if (isset($_SESSION['state'])) {
 	if ($_SESSION['state'] == 'success'){
 	
+		include_once('_partial/db.php');
 		$mysqli = new mysqli('localhost', 'callumlu', 'callum1996', 'cloud_db');
 		$sql = "SELECT `login_time` FROM `login_log` WHERE `account` = ? ORDER BY `login_id` desc";
 		$stmt = $mysqli->prepare($sql);
