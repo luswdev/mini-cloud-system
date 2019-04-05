@@ -47,7 +47,8 @@ git clone https://github.com/omuskywalker/mini-cloud-system.git path/to/your/web
 4. Fill in config.json, where location in repo root.
 5. Enjoy!
 
-## feature
-- upload
+## Feature
+- Upload
+![](https://imgur.com/a/3lWvZxx)
 - delete
 - download
