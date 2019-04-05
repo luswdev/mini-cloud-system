@@ -49,6 +49,7 @@ git clone https://github.com/omuskywalker/mini-cloud-system.git path/to/your/web
 
 ## Feature
 - Upload
-![](https://imgur.com/a/3lWvZxx)
+![](https://github.com/omuskywalker/mini-cloud-system/demo/upload.gif)
 - delete
+![](https://github.com/omuskywalker/mini-cloud-system/demo/delete.gif)
 - download
