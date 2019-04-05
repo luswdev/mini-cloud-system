@@ -20,7 +20,7 @@ if (!$_SESSION['valid']){
 		
 		<?php include_once('_widgets/download_box.php'); ?>
 
-		<div class="main-inner animate-up">
+		<div class="main-inner animate-up file-page">
 		
 			<div class="lists-pwd">
 				<span class="pwd">Searching '<span class="match"><?php echo $_POST['search_file'] ?></span>', total <span class="result-cnt"></span> result(s).</span>

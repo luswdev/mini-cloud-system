@@ -1,5 +1,7 @@
 <?php
-define('BOT_TOKEN', '868385679:AAHea69gcXkC19t85sCx7BUbgFhWWCqpdQc');
+include_once('_partial/config.php');
+
+define('BOT_TOKEN', $config->telegram->token);
 define('API_URL', 'https://api.telegram.org/bot'.BOT_TOKEN.'/');
 
 $request = file_get_contents("php://input");
@@ -97,7 +99,7 @@ if ($content["callback_query"]){
             break;
     }
 
-    $sendto =API_URL."sendmessage?chat_id=460873343&text=".$call_back."&parse_mode=markdown";
+    $sendto =API_URL."sendmessage?chat_id=".$config_json->telegram->user_id."&text=".$call_back."&parse_mode=markdown";
     file_get_contents($sendto);
 }
 

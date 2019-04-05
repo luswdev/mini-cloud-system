@@ -22,9 +22,11 @@ session_start();
 	</div>
 
 	<?php
-	define('BOT_TOKEN', '868385679:AAHea69gcXkC19t85sCx7BUbgFhWWCqpdQc');
+    include_once('_partial/config.php');
+
+	define('BOT_TOKEN', $config->telegram->token);
 	define('API_URL', 'https://api.telegram.org/bot'.BOT_TOKEN.'/');
-	$chatID = 460873343;
+	define('chatID', $config->telegram->user_id);
 
 	include_once('_partial/db.php');
 
@@ -74,7 +76,7 @@ session_start();
 				"💩 *User:* _".$_POST['account']."_".'%0A'.
 				"👀 [See more detail](https://file.omuskywalker.com/phpmyadmin)";
 
-		$sendto = API_URL."sendmessage?chat_id=".$chatID."&text=".$reply."&parse_mode=markdown";
+		$sendto = API_URL."sendmessage?chat_id=".chatID."&text=".$reply."&parse_mode=markdown";
 		file_get_contents($sendto);
 
 		header("Location:/");
@@ -96,7 +98,7 @@ session_start();
 				"💩 *User:* _".$_POST['account']."_".'%0A'.
 				"👀 [See more detail](https://file.omuskywalker.com/phpmyadmin)";
 
-		$sendto = API_URL."sendmessage?chat_id=".$chatID."&text=".$reply."&parse_mode=markdown";
+		$sendto = API_URL."sendmessage?chat_id=".chatID."&text=".$reply."&parse_mode=markdown";
 		file_get_contents($sendto);
 
 		header("Location:/login.php");

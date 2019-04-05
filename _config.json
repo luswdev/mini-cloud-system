@@ -1,0 +1,15 @@
+{
+    "title": "",
+    "author": "",
+    "db": {
+        "host": "localhost",
+        "user": "",
+        "pass": "",
+        "name": ""
+    },
+    "telegram": {
+        "user_id": "",
+        "token":  ""
+    },
+    "upload_root": "/var/html/www"
+}

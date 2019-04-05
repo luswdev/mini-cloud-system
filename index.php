@@ -22,7 +22,7 @@ $_SESSION['pwd']= '/';
 		<?php include_once('_widgets/delete_box.php'); ?>
 		<?php include_once('_widgets/upload_box.php'); ?>
 
-		<div class="main-inner animate-up ">
+		<div class="main-inner animate-up file-page">
 		
 			<div class="lists-pwd">
 				<button class="upload-btn">
