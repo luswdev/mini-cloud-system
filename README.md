@@ -44,6 +44,9 @@ CREATE TABLE login_log(
 git clone https://github.com/omuskywalker/mini-cloud-system.git path/to/your/web/root
 ```
 
+4. Fill in config.json, where location in repo root.
+5. Enjoy!
+
 ## feature
 - upload
 - delete
