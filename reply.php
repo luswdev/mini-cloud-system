@@ -1,5 +1,5 @@
 <?php
-include_once('_partial/config.php');
+$config = json_decode(file_get_contents('_config.json'));
 
 define('BOT_TOKEN', $config->telegram->token);
 define('API_URL', 'https://api.telegram.org/bot'.BOT_TOKEN.'/');

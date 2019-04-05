@@ -1,11 +1,11 @@
 <?php
-
 ob_start();
 session_start();
 
+$config = json_decode(file_get_contents('../_config.json'));
 
-$target_dir = "/home/skywalker/cloud_web/".$_SESSION['pwd'].'/';
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$target_dir = $config->upload_root.$_SESSION['pwd'].'/';
+$target_file = $target_dir.basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 echo $_FILES["fileToUpload"]["tmp_name"];
 
