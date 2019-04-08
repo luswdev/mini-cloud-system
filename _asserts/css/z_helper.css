@@ -21,7 +21,7 @@
 	table td {
 		line-height: 40px;	
 	}
-	table th.th-time, table td.time {
+	table th.th-time, table td.time, table th.th-path, table td.path{
 		display: none;
 	}
 	th.name {
@@ -78,6 +78,15 @@
 
 	.search-go i:before {
 		content: "GO!"
+	}
+
+	.pwd {
+		overflow: scroll;
+		text-overflow: initial;
+	}
+	
+	.pwd::-webkit-scrollbar{
+		display: none;
 	}
 }
 

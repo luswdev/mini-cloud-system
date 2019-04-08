@@ -18,7 +18,7 @@
 	?>
 
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,900" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Germania+One|Open+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700|Lato" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 

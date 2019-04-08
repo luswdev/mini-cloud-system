@@ -28,13 +28,13 @@ if (isset($_SESSION['state'])) {
 	else if ($_SESSION['state'] == 'logout'){
 		echo "
 		<div class='success-info info-block animate-down'>
-		Successful logout.	
+		Successful sign out.	
 		</div>";
 	}
 	else if ($_SESSION['state'] == 'guest'){
 		echo "
 		<div class='warning-info info-block animate-down'>
-		Please login first.	
+		Please sign in first.	
 		</div>";
 	}
 
@@ -53,7 +53,7 @@ if (isset($_SESSION['upload_result'])) {
 		echo "
 		<div class='account-info'>
 		<div class='success-info info-block animate-down'>
-			The file is successfully upload.
+			The file is successfully uploaded.
 		</div>";
 	}
 	else if ($_SESSION['upload_result'] == 'failed'){
@@ -79,7 +79,7 @@ if (isset($_SESSION['delete_result'])) {
 		echo "
 		<div class='account-info'>
 		<div class='success-info info-block animate-down'>
-		The file is successfully delete.
+		The file is successfully deleted.
 		</div>";
 	}
 		

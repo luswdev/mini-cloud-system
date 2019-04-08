@@ -61,20 +61,6 @@ $(document).ready(function() {
 
 			return false;
 	});	
-
-	$('.back-btn').click( function(){
-		var nowurl = location.search;
-		var pwd = nowurl.split('?')[1].split('=')[1];
-		var pwd_list = pwd.split('/');
-		if (pwd_list.length == 1){	
-			window.location.href = '/';
-		}
-		else {
-			nowurl = nowurl.substring(0,nowurl.length - pwd_list[pwd_list.length-1].length -1 );
-			window.location.href = '/render.php'+nowurl;
-		}
-		
-	});
 	
 	var $which_delete;
 	
@@ -84,7 +70,6 @@ $(document).ready(function() {
 		$('.delete-check-box h4').text('Delete "' + $(this).parent().children('.name').text() + '" ?');
 
 		$which_delete = $(this).parent();
-		console.log($which_delete);
 	});
 
 	$('.delete-check-box .check-btn:last-child').click( function(){
@@ -211,3 +196,18 @@ function check_input(){
 	return true;
 }
   
+function jump_path(path){
+	$.ajax({
+		type: 'POST',
+		url: '_partial/set_session.php',
+		data: { 'pwd': path},
+		error: function() {
+			alert('error');
+		},
+		success: function(response) {
+			//calert(response);
+			location.replace('render.php');
+		},
+	})
+
+}

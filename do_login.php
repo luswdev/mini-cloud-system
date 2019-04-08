@@ -9,7 +9,7 @@ session_start();
 	<div class="logout-text">
 		Sign in
 		<div class="loading">
-			Bye
+			Hi
 			<div class="obj"></div>
 			<div class="obj"></div>
 			<div class="obj"></div>

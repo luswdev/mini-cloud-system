@@ -28,7 +28,9 @@ $_SESSION['pwd']= '/';
 				<button class="upload-btn">
 					<i class="fas fa-cloud-upload-alt"></i>
 				</button>
-				<span class="pwd">~</span>
+				<span class="pwd">
+					<a href="/"><i class="fas fa-home"></i></a>
+				</span>
 
 				<button class="logout-btn" onclick="javascript:window.location='logout.php'">
 					<i class="fas fa-sign-out-alt"></i>
@@ -66,7 +68,7 @@ $_SESSION['pwd']= '/';
 
 									if (!is_file($file)){
 										echo "<td class='icon icon-folder'><i class='fas fa-folder'></i></td>";
-										echo "<td class='name'><a href='/render.php?links=$file'>$file</a></td>";
+										echo "<td class='name'><a onclick='jump_path(`$file`)'>$file</a></td>";
 										echo "<td class='download'></td>";
 									}
 									else {

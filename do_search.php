@@ -61,11 +61,16 @@ if (!$_SESSION['valid']){
 								<i class="fas fa-sort-up"></i>
 								<i class="fas fa-sort-down"></i>
 							</th>
+							<th class="th-path">
+								<span class="debug debug-path" onclick='sort_table(2)'>Path</span>
+								<i class="fas fa-sort-up"></i>
+								<i class="fas fa-sort-down"></i>
+							</th>
 							<th class='download'>
 								<span class="debug debug-download"></span>
 							</th>
 							<th class='th-time'>
-								<span class="debug" onclick='sort_table(3)'>Time</span>
+								<span class="debug" onclick='sort_table(4)'>Time</span>
 								<i class="fas fa-sort-up"></i>
 								<i class="fas fa-sort-down"></i>
 							</th>
@@ -78,27 +83,31 @@ if (!$_SESSION['valid']){
 						
                         function searching_file($target_dir, $targer_file){
                             if ($handle = scandir($target_dir)) {
+								$dir = str_replace('.','',$target_dir);
+								$dir_p = substr($dir,1);
                             	foreach ($handle as $file)  {
-                                    if (strstr($file, $targer_file)) {
-                                        echo "<tr class='animate-up'>";
+                                    if (strstr($file, $targer_file) && $file[0]!='.' && $file[0] !='_' && !($target_dir == '.' && preg_match("/[a-zA-Z0-9]?\.php/", $file))) {
+										echo "<tr class='animate-up'>";
         
                                         $notmatchstr = str_replace($targer_file, "<span class='match'>$targer_file</span>", $file);
 
                                         if (!is_file($target_dir.'/'.$file)){
                                             echo "<td class='icon icon-folder'><i class='fas fa-folder'></i></td>";
-                                            echo "<td class='name'><a href='/render.php?links=$target_dir/$file'>$notmatchstr</a></td>";
+											echo "<td class='name'><a href='/render.php?links=$target_dir/$file'>$notmatchstr</a></td>";
+											echo "<td class='path'><a onclick='jump_path(`$dir_p/$file`)'>~$dir/$file</a></td>";
                                             echo "<td class='download'></td>";
                                         }
                                         else {
                                             echo "<td class='icon icon-file'><i class='fas fa-file-alt'></i></td>";
                                             echo "<td class='name'><a href='$target_dir/$file' target='_blank'>$notmatchstr</span></a></td>";
+											echo "<td class='path'><a onclick='jump_path(`$dir_p`)'>~$dir</a></td>";
                                             echo "<td class='download' onclick='open_box(`$target_dir/$file`)'><i class='fas fa-cloud-download-alt'></i></td>";
                                         }
                                         
                                         $ftime=date("Y/m/d",filemtime($target_dir.'/'.$file));
                                         echo "<td class='time'><span class='file-meta'>$ftime</span></td></tr>";
                                     }
-                                    if (is_dir($file) && $file != "." && $file != ".." ){
+                                    if (is_dir($file) && $file[0] != "." && $file[0] != "_" ){
                                         searching_file($target_dir.'/'.$file,$targer_file);
                                     }    
                                 }

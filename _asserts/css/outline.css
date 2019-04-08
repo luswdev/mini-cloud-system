@@ -7,6 +7,7 @@ html{
 }
 
 body {
+	margin: 0;
 	font-family: 'Montserrat', sans-serif;
 }
 h1 {
@@ -56,6 +57,7 @@ table {
 
 td, th {
 	line-height: 30px;
+	text-align: left;
 }
 
 td {
@@ -83,6 +85,9 @@ tr a {
 	color: #263238;
 }
 
+tr td {
+	font-family: 'Ubuntu', sans-serif;
+}
 
 tr a:hover {
 	text-decoration: underline;
@@ -101,11 +106,11 @@ input {
 	padding: 14px 10px;
 	text-align: center;
 	transition: .6s;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'ubuntu', sans-serif;
 }
 
 input::placeholder {
-	color: rgba(189,189,189,.3);
+	color: rgba(189,189,189,1);
 }
 
 input[required]:invalid {
@@ -118,6 +123,7 @@ input[type=submit]{
 	color: #9E9E9E;
 	cursor: pointer;
 	font-weight: 900;
+	font-family: 'Montserrat', sans-serif;
 }
 
 form input[type='file'] {
@@ -134,8 +140,8 @@ button {
 	height: 36px;
 	color: #263238;
 	font-size: 16px;
-	font-family: 'Montserrat', sans-serif;
 	font-weight: 600;
+	font-family: 'ubuntu', sans-serif;
 }
 
 button:last-child {
@@ -192,6 +198,7 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
+	font-family: 'ubuntu', sans-serif;
 }
 
 footer i {

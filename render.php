@@ -7,7 +7,6 @@ if (!$_SESSION['valid']){
 	echo "<script>window.location.assign('/logout.php');</script>";
 }
 
-$_SESSION['pwd']= $_GET['links']; 
 ?>
 <html>
 <head>
@@ -31,12 +30,30 @@ $_SESSION['pwd']= $_GET['links'];
 					<i class="fas fa-cloud-upload-alt"></i>
 				</button>
 				<span class="pwd">
+					<a href="/"><i class="fas fa-home"></i></a>&nbsp
 					<?php
-					$pwd = $_GET['links']; 
-					echo "~/".$pwd;
+					$pwd = $_SESSION['pwd']; 
+					$pwd_arr = explode('/',$pwd);
+					$curr_path = '';
+					foreach ($pwd_arr as $path){
+						if ($curr_path != "")
+							$curr_path.='/';
+						$curr_path.=$path;
+						echo " > <a onclick='jump_path(`$curr_path`)'>$path</a>";
+					}
 					echo "</span>";
 					?>	
-					<button class="back-btn">
+
+					
+							<?php
+								$path = $_SESSION['pwd'];
+								$path_arr = explode("/",$path);
+								$back = str_replace('/'.end($path_arr),'',$path);
+								if ($back!=$path)
+									echo "<button class='back-btn' onclick='jump_path(`$back`)'>";
+								else 
+									echo "<button class='back-btn' onclick='javascript:window.location=`/`'>"
+							?>
 						<i class="fas fa-level-up-alt"></i>
 					</button>
 					<button class="logout-btn" onclick="javascript:window.location='logout.php'">
@@ -68,15 +85,15 @@ $_SESSION['pwd']= $_GET['links'];
 					</thead>
 					</tbody>
 					<?php
-					$pwd = $_GET['links'];
+					$pwd = $_SESSION['pwd'];
 					if ($handle = scandir($pwd)) {
 						foreach ($handle as $file) {
-							if ($file != "." && $file != ".." && $file[0]!=".") {
+							if ($file[0] != "." && $file[0]!="_") {
 								echo "<tr class='animate-up'>";
 
 								if (is_dir($pwd.'/'.$file)){
 									echo "<td class='icon icon-folder'><i class='fas fa-folder'></i></td>";
-									echo "<td class='name'><a href='/render.php?links=$pwd/$file'>$file</a></td>";
+									echo "<td class='name'><a onclick='jump_path(`$pwd/$file`)'>$file</a></td>";
 									echo "<td class='download'></td>";
 								}
 								else {
