@@ -9,8 +9,8 @@
 			Pick
 		</label>
 		<div>
-			<button class="ready-upload-btn" type='submit'>Upload</button>
-			<button class="close-upload-btn">Cancel</button>
+			<button class="ready-upload-btn check-btn" type='submit'>Upload</button>
+			<button class="close-upload-btn check-btn">Cancel</button>
 		</div>
 	</form>
 </div>

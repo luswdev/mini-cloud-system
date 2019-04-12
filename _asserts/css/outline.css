@@ -4,12 +4,13 @@ html{
 	height: 100%;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
+	font-family: 'Ubuntu', sans-serif;
 }
 
-body {
-	margin: 0;
-	font-family: 'Montserrat', sans-serif;
+:focus {
+	outline: none;
 }
+
 h1 {
 	font-size: 100px;
 	font-weight: bolder;
@@ -22,10 +23,6 @@ h1 {
 	-webkit-background-clip: text;
 }
 
-:focus {
-	outline: none;
-}
-
 header {
 	padding-top: 1em;
 	text-align: center;
@@ -33,10 +30,8 @@ header {
 }
 
 a {
-	text-decoration: none;
-	color: #78909c;       
+	text-decoration: none;  
 }
-
 
 i {
 	text-align: center;
@@ -44,20 +39,20 @@ i {
 }
 
 
+/* Table */
 table {
-	border:1px solid #BDBDBD;
+	border: 1px solid #BDBDBD;
 	padding: 0;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
 	margin-top: 0;
 	border-top: 0;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 	width: 100%;
 	border-spacing: 0;
 }
 
 td, th {
 	line-height: 30px;
-	text-align: left;
 }
 
 td {
@@ -81,83 +76,29 @@ thead tr:hover {
 }
 
 tr a {
-	text-decoration: none;
 	color: #263238;
-}
-
-tr td {
-	font-family: 'Ubuntu', sans-serif;
 }
 
 tr a:hover {
 	text-decoration: underline;
 }
 
+/* Input */
+form {
+	position: relative;
+}
 
 input {
 	margin: .5em auto;
+	padding: 14px 10px;
 	background: none;
-	border: 0;
 	width: 240px;
-	border-radius: 24px;
 	color: #263238;
 	font-size: 16px;
 	border: 2px solid #039BE5;
-	padding: 14px 10px;
+	border-radius: 24px;
 	text-align: center;
 	transition: .6s;
-	font-family: 'ubuntu', sans-serif;
-}
-
-input::placeholder {
-	color: rgba(189,189,189,1);
-}
-
-input[required]:invalid {
-	border-color: red;
-}
-
-input[type=submit]{
-	width: 160px;
-	border: 2px solid #AED581;
-	color: #9E9E9E;
-	cursor: pointer;
-	font-weight: 900;
-	font-family: 'Montserrat', sans-serif;
-}
-
-form input[type='file'] {
-	height: 50px;
-	text-align: center;
-}
-
-button {
-	margin-left: 16px;
-	margin-top: 8px;
-	background: radial-gradient(circle, #C8E6C9, #A5D6A7);
-	border: 0;
-	border-radius: 5px;
-	height: 36px;
-	color: #263238;
-	font-size: 16px;
-	font-weight: 600;
-	font-family: 'ubuntu', sans-serif;
-}
-
-button:last-child {
-	background: radial-gradient(circle,#EF9A9A, #E57373);;
-}
-
-button:hover {
-	box-shadow: 1px 1px 4px 1px rgba(102, 187, 106,.5) inset;
-}
-
-button:last-child:hover {
-	box-shadow: 1px 1px 4px 1px rgba(211, 47, 47,.5) inset;
-}
-
-form {
-	position: relative;
 }
 
 input:focus {
@@ -166,11 +107,27 @@ input:focus {
 	width: 300px;
 }
 
+input::placeholder {
+	color: rgba(189,189,189,.7);
+}
+
+input[required]:invalid {
+	border-color: red;
+}
+
+input[type=submit]{
+	width: 160px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 900;
+	border: 2px solid #AED581;
+	color: #9E9E9E;
+}
+
 input[type=submit]:hover,
 input[type=submit]:focus  {
 	width: 160px;
-	background: #AED581;
 	color: #fff;
+	background: #AED581;
 }
 
 label {
@@ -191,6 +148,20 @@ label:hover {
 	box-shadow: 1px 1px 4px 1px rgba(117, 117, 117,.5) inset;
 }
 
+
+/* Button */
+button {
+	margin-left: 16px;
+	margin-top: 8px;
+	border: 0;
+	border-radius: 5px;
+	height: 36px;
+	color: #263238;
+	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 900;
+}
+
 footer {
 	color: #9E9E9E;
 	text-align: center;
@@ -198,7 +169,6 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-	font-family: 'ubuntu', sans-serif;
 }
 
 footer i {

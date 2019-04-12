@@ -2,8 +2,9 @@ $(document).ready(function() {
 	var now_page = window.location.pathname;
 	var should_sort = ['/', '/render.php', '/do_search.php'];
 
-	if (should_sort.indexOf(now_page) != -1)
+	if (should_sort.indexOf(now_page) != -1){
 		sort_table(1);
+	}
 
 	if (now_page == '/login.php')
 		$('.main').animate({opacity: 1, bottom: 0},700);
@@ -53,23 +54,37 @@ $(document).ready(function() {
 	});
 
 	$('.upload-btn, .close-upload-btn').click( function(){
-		$('.file-upload-box').toggleClass("file-upload-box-on");
-		$('.main-inner').toggleClass('disable');
+		$('.upload-list').toggleClass("upload-list-on");
+	});	
 
-		if ($(this).hasClass('upload-btn'))
+	$('.upload-file-btn,  .close-upload-btn').click( function(){
+		$('.upload-list').toggleClass("upload-list-on");
+		$('.file-upload-box').toggleClass("file-upload-box-on");
+		$('.main-inner, header, footer').toggleClass('disable');
+
+		if ($(this).hasClass('upload-file-btn'))
 			check_input();
 
-			return false;
-	});	
+		return false;
+	});
+
+	$('.create-dir, .create-dir-box .check-btn:last-child').click( function(){
+		$('.upload-list').removeClass("upload-list-on");
+		$('.create-dir-box').toggleClass('create-dir-box-on');
+		$('.main-inner, header, footer').toggleClass('disable');
+
+		return false;
+	});
 	
 	var $which_delete;
 	
-	$('.icon-file').click( function(){
+	$('.icon').click( function(){
 		$('.delete-check-box').addClass('delete-check-box-on');
 		$('.main-inner, header, footer').addClass('disable');
 		$('.delete-check-box h4').text('Delete "' + $(this).parent().children('.name').text() + '" ?');
 
-		$which_delete = $(this).parent();
+		$which_delete = $(this);
+		console.log($which_delete);
 	});
 
 	$('.delete-check-box .check-btn:last-child').click( function(){
@@ -79,21 +94,20 @@ $(document).ready(function() {
 
 	$('.delete-check-box .check-btn:first-child').click( function(){
 
-		var should_delete = $which_delete.children().children(1)[1].href
-		var del_arr 	  = should_delete.split('/');
-		var should_delete = del_arr[del_arr.length-1];
+		var should_delete = $which_delete.attr('value');
+		//console.log(should_delete);
+		//var del_arr 	  = should_delete.split('/');
+		//var should_delete = del_arr[del_arr.length-1];
 
 		$.ajax({
-			url: '_partial/do_delete.php',
+			url: 'do_delete.php',
 			type: 'post',
 			data: { 'file': should_delete},
 			error: function (xhr) { },
 			success: function (response) {
-				//alert(response);
+				location.reload();
 			}
 		});
-
-		location.reload();
 	});
 });
 
@@ -192,6 +206,8 @@ function check_input(){
 	fileUploader.addEventListener('change', (e) => {
 		$('.file-location').text(e.target.files[0].name);
 	});
+
+	console.log('add');
 
 	return true;
 }

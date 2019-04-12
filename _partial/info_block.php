@@ -86,6 +86,26 @@ if (isset($_SESSION['delete_result'])) {
 	unset($_SESSION['delete_result']);
 }
 
+if (isset($_SESSION['mkdir_result'])) {
+	if ($_SESSION['mkdir_result'] == 'success'){
+		echo "
+		<div class='account-info'>
+		<div class='success-info info-block animate-down'>
+		Successfully create a directiory.
+		</div>";
+	}
+	else if ($_SESSION['mkdir_result'] == 'failed'){
+		echo "
+		<div class='account-info'>
+		<div class='failed-info info-block animate-down'>
+		There was a error occur when the directory was creating.
+		</div>";
+	}
+
+
+	unset($_SESSION['mkdir_result']);
+}
+
 ?>
 
 </div>

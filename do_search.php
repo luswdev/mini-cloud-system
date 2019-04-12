@@ -25,10 +25,10 @@ if (!$_SESSION['valid']){
 			<div class="lists-pwd">
 				<span class="pwd">Searching '<span class="match"><?php echo $_POST['search_file'] ?></span>', total <span class="result-cnt"></span> result(s).</span>
 
-				<button class="home-btn" onclick="javascript:window.location='/'">
+				<button class="home-btn pointer" onclick="javascript:window.location='/'">
 					<i class="fas fa-home"></i>
 				</button>
-				<button class="search-back-btn">
+				<button class="search-back-btn pointer">
 					<i class="fas fa-level-up-alt"></i>
 				</button>
 				
@@ -36,16 +36,16 @@ if (!$_SESSION['valid']){
 					$('.search-back-btn').click( function(){
 						var pwd = '<?php echo $_SESSION['pwd'] ?>';
 						if (pwd == '/'){	
-							window.location.href = '/';
+							window.location = '/';
 						}
 						else {
-							window.location.href = '/render.php?links='+pwd;
+							window.location = '/render.php';
 						}
 						
 					});
 				</script>
                 
-				<button class="logout-btn" onclick="javascript:window.location='logout.php'">
+				<button class="logout-btn pointer" onclick="javascript:window.location='logout.php'">
 					<i class="fas fa-sign-out-alt"></i>
 				</button>
 			</div>
@@ -57,12 +57,12 @@ if (!$_SESSION['valid']){
 								<span class="debug debug-type">Type</span>
 							</th>
 							<th class='name' >
-								<span class="debug" onclick='sort_table(1)'>Name</span>
+								<span class="debug pointer" onclick='sort_table(1)'>Name</span>
 								<i class="fas fa-sort-up"></i>
 								<i class="fas fa-sort-down"></i>
 							</th>
 							<th class="th-path">
-								<span class="debug debug-path" onclick='sort_table(2)'>Path</span>
+								<span class="debug debug-path pointer" onclick='sort_table(2)'>Path</span>
 								<i class="fas fa-sort-up"></i>
 								<i class="fas fa-sort-down"></i>
 							</th>
@@ -70,7 +70,7 @@ if (!$_SESSION['valid']){
 								<span class="debug debug-download"></span>
 							</th>
 							<th class='th-time'>
-								<span class="debug" onclick='sort_table(4)'>Time</span>
+								<span class="debug pointer" onclick='sort_table(4)'>Time</span>
 								<i class="fas fa-sort-up"></i>
 								<i class="fas fa-sort-down"></i>
 							</th>
@@ -92,16 +92,16 @@ if (!$_SESSION['valid']){
                                         $notmatchstr = str_replace($targer_file, "<span class='match'>$targer_file</span>", $file);
 
                                         if (!is_file($target_dir.'/'.$file)){
-                                            echo "<td class='icon icon-folder'><i class='fas fa-folder'></i></td>";
+                                            echo "<td class='icon icon-folder'><i class='fas fa-folder pointer'></i></td>";
 											echo "<td class='name'><a href='/render.php?links=$target_dir/$file'>$notmatchstr</a></td>";
 											echo "<td class='path'><a onclick='jump_path(`$dir_p/$file`)'>~$dir/$file</a></td>";
                                             echo "<td class='download'></td>";
                                         }
                                         else {
-                                            echo "<td class='icon icon-file'><i class='fas fa-file-alt'></i></td>";
+                                            echo "<td class='icon icon-file'><i class='fas fa-file-alt pointer'></i></td>";
                                             echo "<td class='name'><a href='$target_dir/$file' target='_blank'>$notmatchstr</span></a></td>";
 											echo "<td class='path'><a onclick='jump_path(`$dir_p`)'>~$dir</a></td>";
-                                            echo "<td class='download' onclick='open_box(`$target_dir/$file`)'><i class='fas fa-cloud-download-alt'></i></td>";
+                                            echo "<td class='download' onclick='open_box(`$target_dir/$file`)'><i class='fas fa-cloud-download-alt pointer'></i></td>";
                                         }
                                         
                                         $ftime=date("Y/m/d",filemtime($target_dir.'/'.$file));

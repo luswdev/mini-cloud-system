@@ -1,12 +1,11 @@
+
 <?php
 ob_start();
 session_start();
-
 if (!$_SESSION['valid']){
 	$_SESSION['state']='guest';
 	echo "<script>window.location.assign('/logout.php');</script>";
 }
-
 $_SESSION['pwd']= '/'; 
 ?>
 <html>
@@ -20,22 +19,24 @@ $_SESSION['pwd']= '/';
 
 		<?php include_once('_widgets/download_box.php'); ?>
 		<?php include_once('_widgets/delete_box.php'); ?>
+		<?php include_once('_widgets/create_dir_box.php'); ?>
 		<?php include_once('_widgets/upload_box.php'); ?>
 
 		<div class="main-inner animate-up file-page">
 		
 			<div class="lists-pwd">
-				<button class="upload-btn">
+				<button class="upload-btn pointer">
 					<i class="fas fa-cloud-upload-alt"></i>
 				</button>
 				<span class="pwd">
 					<a href="/"><i class="fas fa-home"></i></a>
 				</span>
 
-				<button class="logout-btn" onclick="javascript:window.location='logout.php'">
+				<button class="logout-btn pointer" onclick="javascript:window.location='logout.php'">
 					<i class="fas fa-sign-out-alt"></i>
 				</button>
 			</div>
+			<?php include_once('_partial/upload_list.php'); ?>
 
 			<div class="container">
 				<table class='file-lists'>
@@ -45,7 +46,7 @@ $_SESSION['pwd']= '/';
 								<span class="debug debug-type">Type</span>
 							</th>
 							<th class='name' >
-								<span class="debug" onclick='sort_table(1)'>Name</span>
+								<span class="debug pointer" onclick='sort_table(1)'>Name</span>
 								<i class="fas fa-sort-up"></i>
 								<i class="fas fa-sort-down"></i>
 							</th>
@@ -53,7 +54,7 @@ $_SESSION['pwd']= '/';
 								<span class="debug debug-download"></span>
 							</th>
 							<th class='th-time'>
-								<span class="debug" onclick='sort_table(3)'>Time</span>
+								<span class="debug pointer" onclick='sort_table(3)'>Time</span>
 								<i class="fas fa-sort-up"></i>
 								<i class="fas fa-sort-down"></i>
 							</th>
@@ -65,18 +66,16 @@ $_SESSION['pwd']= '/';
 							foreach ($handle as $file)  {
 								if ($file != "." && $file != ".." && $file[0]!="." && !preg_match("/[a-zA-Z0-9]?\.php/", $file) && $file[0] != "_"){
 									echo "<tr class='animate-up'>";
-
 									if (!is_file($file)){
-										echo "<td class='icon icon-folder'><i class='fas fa-folder'></i></td>";
+										echo "<td class='icon icon-folder'><i class='fas fa-folder pointer'></i></td>";
 										echo "<td class='name'><a onclick='jump_path(`$file`)'>$file</a></td>";
 										echo "<td class='download'></td>";
 									}
 									else {
-										echo "<td class='icon icon-file'><i class='fas fa-file-alt'></i></td>";
+										echo "<td class='icon icon-file'><i class='fas fa-file-alt pointer'></i></td>";
 										echo "<td class='name'><a href='$file' target='_blank'>$file</a></td>";
-										echo "<td class='download' onclick='open_box(`$file`)'><i class='fas fa-cloud-download-alt'></i></td>";
+										echo "<td class='download' onclick='open_box(`$file`)'><i class='fas fa-cloud-download-alt pointer'></i></td>";
 									}
-
 									$ftime=date("Y/m/d",filemtime($file));
 									echo "<td class='time'><span class='file-meta'>$ftime</span></td></tr>";
 								}	
