@@ -1,5 +1,5 @@
 # Mini Cloud System
-[![HitCount](http://hits.dwyl.io/omuskywalker/mini-cloud-system.svg)](http://hits.dwyl.io/omuskywalker/mini-cloud-system) [![GitHub license](https://img.shields.io/github/license/omuskywalker/mini-cloud-system.svg)](https://github.com/omuskywalker/mini-cloud-system/blob/master/LICENSE)  [![Download](https://img.shields.io/badge/downloads-master-green.svg)](https://codeload.github.com/omuskywalker/mini-cloud-system/zip/master) [![Size](https://img.shields.io/github/repo-size/omuskywalker/mini-cloud-system.svg)]()
+[![HitCount](https://img.shields.io/badge/-hits-brightgreen.svg)](http://hits.dwyl.io/omuskywalker/mini-cloud-system) [![GitHub license](https://img.shields.io/github/license/omuskywalker/mini-cloud-system.svg)](https://github.com/omuskywalker/mini-cloud-system/blob/master/LICENSE)  [![Download](https://img.shields.io/badge/downloads-master-green.svg)](https://codeload.github.com/omuskywalker/mini-cloud-system/zip/master) [![Size](https://img.shields.io/github/repo-size/omuskywalker/mini-cloud-system.svg)]()
 
 This is a mini cloud system by php.
 
