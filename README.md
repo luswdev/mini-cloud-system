@@ -1,5 +1,5 @@
 # Mini Cloud System
-[![HitCount](http://hits.dwyl.io/omuskywalker/mini-cloud-system.svg)](http://hits.dwyl.io/omuskywalker/mini-cloud-system)
+[![HitCount](http://hits.dwyl.io/omuskywalker/mini-cloud-system.svg)](http://hits.dwyl.io/omuskywalker/mini-cloud-system) [![GitHub license](https://img.shields.io/github/license/omuskywalker/mini-cloud-system.svg)](https://github.com/omuskywalker/mini-cloud-system/blob/master/LICENSE)
 
 This is a mini cloud system by php.
 
