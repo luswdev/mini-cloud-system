@@ -1,4 +1,5 @@
 # Mini Cloud System
+[![HitCount](http://hits.dwyl.io/omuskywalker/mini-cloud-system.svg)](http://hits.dwyl.io/omuskywalker/mini-cloud-system)
 
 This is a mini cloud system by php.
 
