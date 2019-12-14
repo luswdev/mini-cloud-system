@@ -50,7 +50,7 @@ else {
             send('sendMessage', $parameters);
             break;
         default:
-            $reply = $got_message;
+            $reply = "Hi, I am a bot.";
             break;
     }
 

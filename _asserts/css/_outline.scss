@@ -1,10 +1,10 @@
 html{
-	background: linear-gradient(120deg, #FCE4EC,#EDE7F6 35%,#E3F2FD);
-	color: #6C7486;
+	background: $background-color;
+	color: $text-color;
 	height: 100%;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
-	font-family: 'Ubuntu', sans-serif;
+	font-family: DOS, 'Ubuntu', sans-serif;
 }
 
 :focus {
@@ -12,21 +12,13 @@ html{
 }
 
 h1 {
+	font-family: 'Mansalva', cursive;
 	font-size: 100px;
 	font-weight: bolder;
 	margin-top: 1em;
 	letter-spacing: 20px;
 	text-transform: uppercase;
-	background: url(../bg.jpg) 50% 50%;
-	background-size: cover;
-	-webkit-text-fill-color: transparent;
-	-webkit-background-clip: text;
-}
-
-header {
-	padding-top: 1em;
-	text-align: center;
-	margin: 0 auto -3em;
+	color: $title-color;
 }
 
 a {
@@ -35,13 +27,18 @@ a {
 
 i {
 	text-align: center;
-	color: #9e9e9e;
+	color: $icon-color;
 }
 
+header {
+	padding-top: 1em;
+	text-align: center;
+	margin: 0 auto -3em;
+}
 
 /* Table */
 table {
-	border: 1px solid #BDBDBD;
+	border: 1px solid $table-border-color;
 	padding: 0;
 	margin-top: 0;
 	border-top: 0;
@@ -56,31 +53,30 @@ td, th {
 }
 
 td {
-	border-top: 1px solid #BDBDBD;
+	border-top: 1px solid $table-border-color;
 }
 
 tr {
-	opacity: 0;
-}
+    opacity: 0;
+    
+    &:last-child {
+        border: 0;
+    }
+    &:hover {
+        background: $tr-hover-color;
+    }
 
-tr:last-child {
-	border: 0;
-}
+    a {
+        color: $link-color;
 
-tr:hover {
-	background: rgba(209, 196, 233, .2); 
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
 
 thead tr:hover {
     background: 0;
-}
-
-tr a {
-	color: #263238;
-}
-
-tr a:hover {
-	text-decoration: underline;
 }
 
 /* Input */
@@ -91,49 +87,50 @@ form {
 input {
 	margin: .5em auto;
 	padding: 14px 10px;
-	background: none;
 	width: 240px;
-	color: #263238;
+	color: $input-color;
+	background: $input-bg;
+	border-radius: 8px;
+	border: none;
 	font-size: 16px;
-	border: 2px solid #039BE5;
-	border-radius: 24px;
 	text-align: center;
-	transition: .6s;
+    transition: .6s;
+    font-family: DOS, 'Ubuntu', sans-serif;
+        
 }
 
 input:focus {
-	outline: none;
-	border-color:#AED581;
+	border-color:$input-focus-color;
 	width: 300px;
 }
 
 input::placeholder {
-	color: rgba(189,189,189,.7);
+	color: $input-placeholder-color;
 }
 
 input[required]:invalid {
-	border-color: red;
+	background: $input-vaild-bg;
 }
 
 input[type=submit]{
 	width: 160px;
-	font-family: 'Montserrat', sans-serif;
 	font-weight: 900;
-	border: 2px solid #AED581;
-	color: #9E9E9E;
+    background: none;
 }
 
 input[type=submit]:hover,
 input[type=submit]:focus  {
 	width: 160px;
-	color: #fff;
-	background: #AED581;
+}
+
+.login-block .account-box input:-internal-autofill-selected {
+    background-color: none !important;
+    background-image: none !important;
 }
 
 label {
-    background: #9E9E9E;
+    background: $input-label-bg;
     display: inline-block;
-    color: #EDE7F6;
     font-size: 16px;
 	border-radius: 5px;
 	width: 25%;
@@ -144,11 +141,6 @@ label {
     margin-right: 1em;
 }
 
-label:hover {
-	box-shadow: 1px 1px 4px 1px rgba(117, 117, 117,.5) inset;
-}
-
-
 /* Button */
 button {
 	margin-left: 16px;
@@ -156,21 +148,24 @@ button {
 	border: 0;
 	border-radius: 5px;
 	height: 36px;
-	color: #263238;
+	color: $button-text-color;
 	font-size: 16px;
-	font-family: 'Montserrat', sans-serif;
 	font-weight: 900;
+	font-family: DOS, 'Ubuntu', sans-serif;
 }
 
+/* footer */
+
 footer {
-	color: #9E9E9E;
+	color: $footer-text-color;
 	text-align: center;
 	padding-bottom: 1em;
     bottom: 0;
     left: 0;
     right: 0;
+    
+    i {
+        color: inherit;
+    }
 }
 
-footer i {
-	color: inherit;
-}

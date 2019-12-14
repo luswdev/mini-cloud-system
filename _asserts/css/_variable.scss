@@ -1,0 +1,89 @@
+/* color table */
+$white  : #FFF;
+$red    : #F00;
+$green  : #0F0;
+$blue   : #00F;
+$yellow : #FF0;
+$cyan   : #0FF;
+$purple : #F0F;
+$black  : #000;
+$grey   : #222;
+
+/* Scaffold 
+ **********************************************************************/
+/* Global background */
+$background-color   : $black;
+
+/* Global text color */
+$text-color         : $green;
+
+/* Global border color */
+$border-color       : $white;
+$title-color        : $text-color;
+$icon-color         : $text-color;
+$link-color         : $text-color;
+$button-text-color  : $grey;
+$footer-text-color  : lighten($grey, 20%);
+
+/* input color define */
+$input-color                    : $white;
+$input-focus-color              : $green;
+$input-placeholder-color        : lighten($grey, 50%);
+$input-bg                       : $grey;
+$input-vaild-bg                 : rgba(255, 0, 0, .3);
+$input-submit-on-bg             : rgba(0, 255, 0, .5);
+$input-submit-border-color      : $green;
+$input-label-bg                 : lighten($grey, 20%);
+
+/* table color define */
+$th-text-color      : $text-color;
+$td-text-color      : $text-color;
+$download-btn-color : lighten($grey, 20%);
+$download-btn-hover : $text-color;
+$file-icon-color    : $white;
+$tr-hover-color     : rgba(32, 32, 32, .7);
+$table-border-color : $white;
+
+/* info block color define */
+$success-color  : $green;
+$warning-color  : $yellow;
+$failed-color   : $red;
+
+/* font faces */
+@font-face {
+    font-family: DOS;
+    src: url(/_asserts/Fixedsys500c.woff);
+}
+
+/* mixin function */
+@mixin info-block-type($color) {
+    color: $color;
+    border-color: $color;
+    background: #000;
+}
+
+@mixin pop-out-box($c, $w, $h) {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 40%;
+    background: #222;
+    z-index: 2;
+    margin: auto;
+    text-align: center;
+    border-radius: 5px;
+    color: #fff;
+
+    @if $w > 0 {
+        width: #{$w}px;
+    }
+
+    @if $h > 0 {
+        height: #{$h}px;
+    }
+
+    &.#{$c}-on {
+        display: block;
+    }
+}

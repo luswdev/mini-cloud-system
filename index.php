@@ -2,15 +2,17 @@
 <?php
 ob_start();
 session_start();
-if (!$_SESSION['valid']){
+
+if (!isset($_SESSION['valid'])){
 	$_SESSION['state']='guest';
 	echo "<script>window.location.assign('/logout.php');</script>";
 }
 $_SESSION['pwd']= '/'; 
 ?>
+
 <html>
 	<?php include_once('_partial/head.php'); ?>
-<body >
+<body>
 	
 	<?php include_once('_partial/info_block.php'); ?>
 	<?php include_once('_partial/header.php'); ?>
@@ -24,7 +26,7 @@ $_SESSION['pwd']= '/';
 
 		<div class="main-inner animate-up file-page">
 		
-			<div class="lists-pwd">
+			<div class="function-bar">
 				<button class="upload-btn pointer">
 					<i class="fas fa-cloud-upload-alt"></i>
 				</button>
@@ -36,6 +38,7 @@ $_SESSION['pwd']= '/';
 					<i class="fas fa-sign-out-alt"></i>
 				</button>
 			</div>
+
 			<?php include_once('_partial/upload_list.php'); ?>
 
 			<div class="container">
@@ -43,20 +46,20 @@ $_SESSION['pwd']= '/';
 					<thead>
 						<tr class='animate-up'>
 							<th class='type'>
-								<span class="debug debug-type">Type</span>
+								<span class="table-head table-head-type"></span>
 							</th>
 							<th class='name' >
-								<span class="debug pointer" onclick='sort_table(1)'>Name</span>
-								<i class="fas fa-sort-up"></i>
-								<i class="fas fa-sort-down"></i>
+								<span class="table-head table-head-name pointer" onclick='sort_table(1)'>Name</span>
+								<i class="fas fa-sort-up sort-asc"></i>
+								<i class="fas fa-sort-down sort-dec"></i>
 							</th>
 							<th class='download'>
-								<span class="debug debug-download"></span>
+								<span class="table-head table-head-download"></span>
 							</th>
 							<th class='th-time'>
-								<span class="debug pointer" onclick='sort_table(3)'>Time</span>
-								<i class="fas fa-sort-up"></i>
-								<i class="fas fa-sort-down"></i>
+								<span class="table-head table-head-time pointer" onclick='sort_table(3)'>Time</span>
+								<i class="fas fa-sort-up sort-asc"></i>
+								<i class="fas fa-sort-down sort-dec"></i>
 							</th>
 						</tr>
 					</thead>
@@ -64,15 +67,15 @@ $_SESSION['pwd']= '/';
 						<?php
 						if ($handle = scandir('.')) {
 							foreach ($handle as $file)  {
-								if ($file != "." && $file != ".." && $file[0]!="." && !preg_match("/[a-zA-Z0-9]?\.php/", $file) && $file[0] != "_"){
+								if ($file[0] != "."  && $file[0]!="_" && !preg_match("/[a-zA-Z0-9]?\.php/", $file)){
 									echo "<tr class='animate-up'>";
 									if (!is_file($file)){
-										echo "<td class='icon icon-folder'><i class='fas fa-folder pointer'></i></td>";
-										echo "<td class='name'><a onclick='jump_path(`$file`)'>$file</a></td>";
+										echo "<td class='icon icon-folder' value='$file'><i class='fas fa-folder pointer'></i></td>";
+										echo "<td class='name pointer'><a onclick='jump_path(`$file`)'>$file</a></td>";
 										echo "<td class='download'></td>";
 									}
 									else {
-										echo "<td class='icon icon-file'><i class='fas fa-file-alt pointer'></i></td>";
+										echo "<td class='icon icon-file' value='$file'><i class='fas fa-file-alt pointer'></i></td>";
 										echo "<td class='name'><a href='$file' target='_blank'>$file</a></td>";
 										echo "<td class='download' onclick='open_box(`$file`)'><i class='fas fa-cloud-download-alt pointer'></i></td>";
 									}

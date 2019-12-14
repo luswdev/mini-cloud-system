@@ -16,19 +16,19 @@ if ($_SESSION['valid'])
 
 	<header>
 		<a href='/'>
-			<h1 class="cloud-title animate-down">Sign in</h1>
+			<h1 class="cloud-title animate-down">Who?</h1>
 		</a>
 	</header>
 	<div class="main animate-up">
 		<div class="main-inner">
 
 			
-			<form class="login-block" role="form" action="/do_login.php" method='post'>
+			<form class="login-block" role="form" action="/do_login.php" method='post' autocomplete="off" >
 				<div class="account-box">
-					<input type="text" placeholder="Account" name="account" autofocus="autofocus" autocapitalize="none" autocomplete="off" >
+					<input type="text" placeholder="Account" name="account" autofocus="autofocus" autocapitalize="none" autocomplete="new-password">
 				</div>
 				<div class="password-box">
-					<input type="password" placeholder="Password" name="password" >
+					<input type="password" placeholder="Password" name="password" autocomplete="new-password">
 				</div>
 				<div class="submit-box">
 					<span></span>

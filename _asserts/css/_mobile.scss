@@ -1,48 +1,42 @@
-
-@media only screen and (max-width: 500px){
-	.main-inner {
-		width: 100%;
-	}
+@media only screen and (max-width: 500px) {
 	body {
 		margin: 0;
 	}
+	.main-inner {
+		width: 100%;
+	}
+	
+    .function-bar,
 	.main .lists-pwd {
 		border-left: 0;
-		border-right: 0;
+        border-right: 0;
 		border-top-left-radius: 0;
 		border-top-right-radius: 0;
 	}
+
 	table.file-lists {
 		border-left: 0;
 		border-right: 0;
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
-	}
-	table td {
-		line-height: 40px;	
-	}
-	table th.th-time, table td.time, table th.th-path, table td.path{
-		display: none;
-	}
-	th.name {
-		text-align: left;
+
+		th.th-time, 
+		td.time, 
+		th.th-path, 
+		td.path{
+			display: none;
+		}
+		
+		th.name {
+			text-align: left;
+		}
+
+		td {
+			line-height: 40px;	
+		}
 	}
 
-	div.download-check-box {
-		width: 95%;
-	}
-
-	.profix-menu-toggle {
-		margin-right: 10px;
-		margin-top: -50px;
-	}
-
-	.profix-menu{
-		margin-top: -10px;
-		position: absolute;
-		right: 1%;
-	}
-
+	div.download-check-box,
 	.file-upload-box {
 		width: 90%;
 	}
@@ -58,10 +52,10 @@
 	input#search-file {
 		width: 50%;
 		margin-left: -1px;
-	}
 
-	input#search-file:focus {
-		width: 70%;
+		&:focus {
+			width: 70%;
+		}
 	}
 
 	.search-go {
@@ -76,17 +70,13 @@
 		width: 6em;
 	}
 
-	.search-go i:before {
-		content: "GO!"
-	}
-
 	.pwd {
 		overflow: scroll;
 		text-overflow: initial;
-	}
-	
-	.pwd::-webkit-scrollbar{
-		display: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
 	}
 }
 
@@ -100,21 +90,19 @@
 	}
 } 
 
-@media only screen and (max-width: 1200px) and (min-width: 770px){
+@media only screen and (max-width: 1200px) and (min-width: 770px) {
     h1 {
         font-size: 120px;
     }
 }
 
-@media only screen and (max-width: 769px){
+@media only screen and (max-width: 769px) and (min-width: 320px) {
     h1 {
-        padding-top: 1em;
         font-size: 50px;
-        letter-spacing: 10px;
     }
 }
 
-@media only screen and (max-width: 320px){
+@media only screen and (max-width: 319px) {
     h1 {
         font-size: 30px;
     }

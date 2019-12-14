@@ -30,7 +30,7 @@ session_start();
 
 	include_once('_partial/db.php');
 
-	$sql = "SELECT DECODE(passwd, 'dcdclab') FROM users_list WHERE account = ?";
+	$sql = "SELECT passwd FROM users_list WHERE account = ?";
 	$stmt = $mysqli->prepare($sql);
 	$stmt->bind_param('s',$_POST['account']);
 	$stmt->execute();
@@ -47,9 +47,9 @@ session_start();
 	}
 
 	$_SESSION['ip'] = $ip;
-	$_SESSION['account'] = $_POST['account'];
+    $_SESSION['account'] = $_POST['account'];
 
-	if ( $passwd == $_POST['password'] && $_POST['password']!='' ){
+	if ( $passwd == hash('sha256', $_POST['password']) && $_POST['password']!='' ){
 
 		$_SESSION['valid'] = true;
 		$_SESSION['timeout'] = time();

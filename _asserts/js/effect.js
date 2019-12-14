@@ -106,6 +106,7 @@ $(document).ready(function() {
 			error: function (xhr) { },
 			success: function (response) {
 				location.reload();
+
 			}
 		});
 	});

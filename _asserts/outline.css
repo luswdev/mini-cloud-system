@@ -1,28 +1,38 @@
 html{
-	background: linear-gradient(120deg, #FCE4EC,#EDE7F6 35%,#E3F2FD);
-	color: #6C7486;
+	background: #000;
+	color: #0f0;
 	height: 100%;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
+	font-family: DOS, 'Ubuntu', sans-serif;
 }
 
-body {
-	font-family: 'Montserrat', sans-serif;
+:focus {
+	outline: none;
 }
+
+@font-face {
+    font-family: DOS;
+    src: url(/_asserts/Fixedsys500c.woff);
+  }
+
 h1 {
+	font-family: 'Mansalva', cursive;
 	font-size: 100px;
 	font-weight: bolder;
 	margin-top: 1em;
 	letter-spacing: 20px;
 	text-transform: uppercase;
-	background: url(bg.jpg) 50% 50%;
-	background-size: cover;
-	-webkit-text-fill-color: transparent;
-	-webkit-background-clip: text;
+	color: #0f0;
 }
 
-:focus {
-	outline: none;
+a {
+	text-decoration: none;  
+}
+
+i {
+	text-align: center;
+	color: #0f0;
 }
 
 header {
@@ -31,25 +41,14 @@ header {
 	margin: 0 auto -3em;
 }
 
-a {
-	text-decoration: none;
-	color: #78909c;       
-}
-
-
-i {
-	text-align: center;
-	color: #9e9e9e;
-}
-
-
+/* Table */
 table {
-	border:1px solid #BDBDBD;
+	border: 1px solid #fff;
 	padding: 0;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
 	margin-top: 0;
 	border-top: 0;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 	width: 100%;
 	border-spacing: 0;
 }
@@ -59,7 +58,7 @@ td, th {
 }
 
 td {
-	border-top: 1px solid #BDBDBD;
+	border-top: 1px solid #fff;
 }
 
 tr {
@@ -71,7 +70,7 @@ tr:last-child {
 }
 
 tr:hover {
-	background: rgba(209, 196, 233, .2); 
+	background: rgba(32,32,32,.5);
 }
 
 thead tr:hover {
@@ -79,92 +78,66 @@ thead tr:hover {
 }
 
 tr a {
-	text-decoration: none;
-	color: #263238;
+	color: #0f0;
 }
-
 
 tr a:hover {
 	text-decoration: underline;
 }
 
-
-input {
-	margin: .5em auto;
-	background: none;
-	border: 0;
-	width: 240px;
-	border-radius: 24px;
-	color: #263238;
-	font-size: 16px;
-	border: 2px solid #039BE5;
-	padding: 14px 10px;
-	text-align: center;
-	transition: .6s;
-	font-family: 'Montserrat', sans-serif;
-}
-
-input::placeholder {
-	color: rgba(189,189,189,.3);
-}
-
-input[required]:invalid {
-	border-color: red;
-}
-
-input[type=submit]{
-	width: 160px;
-	border: 2px solid #AED581;
-	color: #9E9E9E;
-	cursor: pointer;
-	font-weight: 900;
-}
-
-form input[type='file'] {
-	height: 50px;
-	text-align: center;
-}
-
-button {
-	margin-left: 16px;
-	margin-top: 8px;
-	background: radial-gradient(circle, #C8E6C9, #A5D6A7);
-	border: 0;
-	border-radius: 5px;
-	height: 36px;
-	color: #263238;
-	font-size: 16px;
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 600;
-}
-
-button:last-child {
-	background: radial-gradient(circle,#EF9A9A, #E57373);;
-}
-
-button:hover {
-	box-shadow: 1px 1px 4px 1px rgba(102, 187, 106,.5) inset;
-}
-
-button:last-child:hover {
-	box-shadow: 1px 1px 4px 1px rgba(211, 47, 47,.5) inset;
-}
-
+/* Input */
 form {
 	position: relative;
 }
 
+input {
+	margin: .5em auto;
+	padding: 14px 10px;
+	width: 240px;
+	color: #fff;
+	background: #222;
+	border-radius: 8px;
+	border: none;
+	font-size: 16px;
+	text-align: center;
+    transition: .6s;
+    font-family: DOS, 'Ubuntu', sans-serif;
+        
+}
+
 input:focus {
-	outline: none;
-	border-color:#AED581;
+	border-color:#0f0;
 	width: 300px;
+}
+
+input::placeholder {
+	color: rgba(189,189,189,.7);
+}
+
+input[required]:invalid {
+	background: rgba(255,0,0,.3);
+}
+
+input[type=submit]{
+	width: 160px;
+	font-weight: 900;
+	border: 2px solid #0f0;
+    color: #9E9E9E;
+    background: none;
 }
 
 input[type=submit]:hover,
 input[type=submit]:focus  {
 	width: 160px;
-	background: #AED581;
 	color: #fff;
+    background: rgba(0, 255, 0, .5);
+    border-color: rgba(0, 255, 0, .5);
+}
+
+.login-block .account-box input:-internal-autofill-selected {
+    background-color: none !important;
+    background-image: none !important;
+    color: rgb(0, 0, 0) !important;
 }
 
 label {
@@ -183,6 +156,20 @@ label {
 
 label:hover {
 	box-shadow: 1px 1px 4px 1px rgba(117, 117, 117,.5) inset;
+}
+
+
+/* Button */
+button {
+	margin-left: 16px;
+	margin-top: 8px;
+	border: 0;
+	border-radius: 5px;
+	height: 36px;
+	color: #263238;
+	font-size: 16px;
+	font-weight: 900;
+	font-family: DOS, 'Ubuntu', sans-serif;
 }
 
 footer {

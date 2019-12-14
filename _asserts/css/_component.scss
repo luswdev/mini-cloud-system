@@ -1,0 +1,423 @@
+.pointer {
+    cursor: pointer;
+}
+
+.disable {
+    pointer-events: none;
+    opacity: .3 !important;
+}
+
+.main-inner {
+    width: 800px;
+    margin: 10em auto 8em;
+}
+  
+/* file table */
+.file-lists {
+
+    .table-head {
+        color: $th-text-color;
+    }
+
+    th {
+        text-transform: uppercase;
+
+        &.th-time {
+            width: 7em;
+            text-align: center;
+        }
+
+        &.name {
+            text-align: left;
+        }
+        
+        &.type {
+            width: 3.5em;
+        }
+
+        &.download {
+            width: 30px;
+        }
+
+        .path a{
+            color: $td-text-color;
+        }
+
+        .sort-asc {
+            display: none;
+            vertical-align: text-bottom;
+        }
+        
+        .sort-dec {
+            display: none;
+            vertical-align: text-top;
+        }
+    }
+
+    .asc .sort-asc {
+        display: inline;
+    }
+    
+    .dec .sort-dec {
+        display: inline;
+    }
+
+    td {
+        &.icon {
+            text-align: center;
+    
+            &:hover i:before {
+                content: "\f2ed";
+            }
+    
+            i{
+                color: $file-icon-color;
+            }
+        }
+    
+        &.time {
+            width: 7em;
+            text-align: center;
+        }
+
+        &.download {
+            i {
+                color: $download-btn-color;
+            }
+    
+            &:hover i{
+                color: $download-btn-hover;
+            }
+        }
+
+        .file-meta {
+            color: $td-text-color;
+            font-size: .9em
+        }
+    } 
+}
+  
+/* login page */  
+.login-block {
+    text-align: center;
+
+    .login {
+        width: 160px;
+    }
+
+    input[type=submit]{
+        border-radius: 0;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        text-transform: uppercase;
+        border: none;
+        color: $input-color;
+
+        &:hover {
+            background: none;
+        }
+    }
+}
+
+/* logout page*/
+.logout-text {
+    text-align: center;
+    padding: 3em 0;
+    color: $text-color;
+    font-size: 3em;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.account-info {
+    width: 100%;
+    position: fixed;
+    top: 3%;
+    z-index: 2;
+
+    .info-block {
+        text-align: center;
+        padding: 18px 7px;
+        border: 1px solid;
+        width: 	270px;
+        margin: 0 auto 2em;
+        border-radius: 5px;
+        font-size: 13px;
+    
+        &.success-info { @include info-block-type($success-color); }
+        &.failed-info  { @include info-block-type($failed-color); }
+        &.warning-info { @include info-block-type($warning-color); }
+    }
+}
+
+/* function bar */
+.function-bar {
+    border: 1px solid #fff;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: $text-color;
+    position: relative;
+ 
+    button {
+       position: absolute;
+       height: 100%;
+       background: none;
+       width: 42px;
+       top: 0;
+       margin: 0;
+       background: none !important;
+       border-radius: 0;
+
+        &:hover i{
+            color: #0f0;
+        }
+        i {
+            color: #fff;
+        }
+    }
+ 
+    .upload-btn, .home-btn{
+       left: 0;
+       border-right: 1px solid $table-border-color;
+    }
+
+    .back-btn, .search-back-btn {
+        float: right;
+        right: 42;
+        border-left: 1px solid $table-border-color;
+    }
+
+    .logout-btn {
+        right: 0;
+        border-left: 1px solid $table-border-color;
+    }
+} 
+ 
+/* current directory indicator */
+.pwd {
+    margin-left: 3em;
+    color: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+
+    a {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+    i {
+        color: #fff;
+
+        &:hover {
+            color: #0f0;
+        }
+    }
+
+    /* searching result match word */
+    span.match {
+        color: #f00;
+        font-weight: 700;
+        text-shadow: 2px 2px 2px rgba(255, 0, 0, .3);
+    }
+}
+  
+/* searching input box */
+.search-box {
+    margin-top: 6em;
+
+    .search-box-container input.search-go {
+        padding: 10px;
+        margin: .5em auto;
+        font-size: 1.1em;
+        width: 100px;
+        background: #222;
+        border: none;
+
+        &:hover {
+            width: 100;
+        }
+
+        input#search-file {
+            width: 250px;
+            top: 1px;
+            position: relative;
+
+            &:focus {
+                width: 400px;
+                box-shadow: none;
+            }
+        }
+    }
+}
+ 
+/* download box */
+.download-check-box {
+    @include pop-out-box('download-check-box', 320, 130);
+
+    padding-bottom: 1em;
+
+    h4 {
+        color: #fff;
+        text-align: center;
+        padding-top: 16px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: 600;
+    }
+
+    .download-check-btn-box{
+        text-align: center;
+    }
+}
+
+.delete-check-box {
+    @include pop-out-box('delete-check-box', 320, 130);
+
+    padding-bottom: 1em;
+
+    h4 {
+        color: #fff;
+        text-align: center;
+        padding-top: 16px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: 600;
+    }
+
+    .delete-check-btn-box{
+        text-align: center;
+    }
+}
+
+.check-btn-box {
+    text-align: center;
+
+    .check-btn {
+        width: 50px;
+        position: relative;
+        overflow: hidden;
+    
+        a {
+            color: #263238;
+        }
+    
+        &:first-child {
+            margin-left: 0;
+            margin-right: 1em;
+            background: #0f0;
+        }
+        
+        &:last-child {
+            margin-left: 1em;
+            background: #f00;
+        }
+    }  
+}
+
+/* upload stream list box */
+.upload-list {
+    position: absolute;
+    left: 1;
+    max-height: 0;
+    background: #222;
+    font-weight: 900;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: .3s;
+    overflow: hidden;
+
+    &.upload-list-on {
+        max-height: 10em;
+        padding: 5px;
+    }
+
+    .upload-list-item {
+        padding: 5px;
+        border-bottom: 1px solid #fff;
+
+        &:last-child {
+            border: none;
+        }
+    }
+    
+}
+
+/* upload file box */
+.file-upload-box {
+    @include pop-out-box('file-upload-box', 520, 235);
+
+    h4 {
+        color: #fff;
+        text-align: center;
+        padding-top: 16px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: 600;
+    }
+    
+    form {
+        text-align: center;
+
+        button {
+            width: 25%;
+            margin-left: 0;
+            margin-top: 2em;
+
+            &:first-child {
+                margin-right: .5em;
+            }
+
+            &:last-child {
+                margin-left: .5em;
+            }
+        }
+    }
+    
+    .file-location-box{
+        width: 65%;
+        height: 36px;
+        border: 1px solid #78909c;
+        border-radius: 5px;
+        margin-left: 1em;
+        color: #bdbdbd;
+        padding: 5px;
+        box-sizing: border-box;
+
+        h4 {
+            padding-bottom: 1em;
+        }
+
+        .file-location {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: inline-block;
+            width: 100%;
+        }
+    }
+
+    .check-btn {
+        width: 70px;
+    }
+}
+
+/* create directory box */
+.create-dir-box {
+    @include pop-out-box('create-dir-box', 400, 0);
+
+    input {
+        background: #444;
+    }
+    
+    .check-btn {
+        width: 70px;
+    }
+}

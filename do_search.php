@@ -7,11 +7,13 @@ if (!$_SESSION['valid']){
 	header("Location:/login.php");
 }
 
+global $pwd;
+$pwd = $_SESSION['pwd'];
+
 ?>
+
 <html>
-<head>
 	<?php include_once('_partial/head.php'); ?>
-</head>
 <body>
 
 	<?php include_once('_partial/header.php'); ?>
@@ -22,19 +24,22 @@ if (!$_SESSION['valid']){
 
 		<div class="main-inner animate-up file-page">
 		
-			<div class="lists-pwd">
-				<span class="pwd">Searching '<span class="match"><?php echo $_POST['search_file'] ?></span>', total <span class="result-cnt"></span> result(s).</span>
-
+			<div class="function-bar">
 				<button class="home-btn pointer" onclick="javascript:window.location='/'">
 					<i class="fas fa-home"></i>
 				</button>
+
+				<span class="pwd">
+					Searching '<span class="match"><?php echo $_POST['search_file'] ?></span>', total <span class="result-cnt"></span> result(s).
+				</span>
+				
 				<button class="search-back-btn pointer">
 					<i class="fas fa-level-up-alt"></i>
 				</button>
 				
 				<script>
 					$('.search-back-btn').click( function(){
-						var pwd = '<?php echo $_SESSION['pwd'] ?>';
+						var pwd = '<?php echo $pwd ?>';
 						if (pwd == '/'){	
 							window.location = '/';
 						}
@@ -54,25 +59,26 @@ if (!$_SESSION['valid']){
 					<thead>
 						<tr class='animate-up'>
 							<th class='type'>
-								<span class="debug debug-type">Type</span>
+								<span class="table-head table-head-type"></span>
 							</th>
 							<th class='name' >
-								<span class="debug pointer" onclick='sort_table(1)'>Name</span>
-								<i class="fas fa-sort-up"></i>
-								<i class="fas fa-sort-down"></i>
+								<span class="table-head table-head-name pointer" onclick='sort_table(1)'>Name</span>
+								<i class="fas fa-sort-up sort-asc"></i>
+								<i class="fas fa-sort-down sort-dec"></i>
 							</th>
 							<th class="th-path">
-								<span class="debug debug-path pointer" onclick='sort_table(2)'>Path</span>
-								<i class="fas fa-sort-up"></i>
-								<i class="fas fa-sort-down"></i>
+								<span class="table-head table-head-path pointer" onclick='sort_table(2)'>Path</span>
+								<i class="fas fa-sort-up sort-asc"></i>
+								<i class="fas fa-sort-down sort-dec"></i>
 							</th>
 							<th class='download'>
-								<span class="debug debug-download"></span>
+								<span class="table-head table-head-download"></span>
 							</th>
 							<th class='th-time'>
-								<span class="debug pointer" onclick='sort_table(4)'>Time</span>
-								<i class="fas fa-sort-up"></i>
-								<i class="fas fa-sort-down"></i>
+								<span class="table-head table-head-time pointer" onclick='sort_table(4)'>Time</span>
+								<i class="fas fa-sort-up sort-asc"></i>
+                                <i class="fas fa-sort-down sort-dec
+                                "></i>
 							</th>
 						</tr>
 					</thead>
