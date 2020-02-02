@@ -1,0 +1,229 @@
+/* global animate */
+.animate-down {
+    opacity: 0;
+    position: relative;
+    top: -50px;
+}
+
+.animate-up {
+    opacity: 0;
+    position: relative;
+    bottom: -40px;
+}
+
+/* login submit button */
+.submit-box {
+    position: relative; 
+    width: 160px;
+    margin: 2em auto;
+    overflow: hidden;
+    padding: 10px;
+
+    &::before {
+        position: absolute;
+        content: "";
+        background: $input-submit-on-bg;
+        width: 50%;	
+        height: 100%;
+        top: 0;
+        left: 0;
+        transition: .6s;
+    }
+
+    &:hover::before { 
+        width: 100%;
+        background: $input-submit-on-bg;    	
+    }
+
+    span:nth-child(1){
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: $input-submit-border-color; 
+        animation: run1 1.5s linear infinite;
+        animation-delay: .75s;
+    }
+    
+    @keyframes run1 {
+        from {
+            transform: translateX(-100%);
+        }
+        to {
+            transform: translateX(100%);
+        }
+    }
+    
+    span:nth-child(2){
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background: $input-submit-border-color;
+        animation: run2 1.5s linear infinite;
+    }
+    
+    @keyframes run2 {
+        from {
+            transform: translateY(-100%);
+        }
+        to {
+            transform: translateY(100%);
+        }
+    }
+    
+    span:nth-child(3){
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: $input-submit-border-color;
+        animation: run3 1.5s linear infinite;
+        animation-delay: .75s;
+    }
+    
+    @keyframes run3 {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
+    
+    span:nth-child(4){
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: $input-submit-border-color;
+        animation: run4 1.5s linear infinite;
+    }
+    
+    @keyframes run4 {
+        from {
+            transform: translateY(100%);
+        }
+        to {
+            transform: translateY(-100%);
+        }
+    }
+    
+}
+
+/* login/out */
+.loading{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.obj
+{
+    width: 6px;
+    height: 40px;
+    background: $text-color;
+    margin: 0 3px;
+    border-radius: 10px;
+    animation: loading 0.8s infinite;
+
+    &:nth-child(1){
+        margin-left: 1em;
+    }
+    &:nth-child(1){
+        margin-left: 1em;
+    }
+    &:nth-child(2){
+        animation-delay: 0.1s;
+    }
+    &:nth-child(3){
+        animation-delay: 0.2s;
+    }
+    &:nth-child(4){
+        animation-delay: 0.3s;
+    }
+    &:nth-child(5){
+        animation-delay: 0.4s;
+    }
+    &:nth-child(6){
+        animation-delay: 0.5s;
+    }
+    &:nth-child(7){
+        animation-delay: 0.6s;
+    }
+    &:nth-child(8){
+        animation-delay: 0.7s;
+    }
+}
+  
+@keyframes loading {
+    0%{
+      height: 0;
+    }
+    50%{
+      height: 40px;
+    }
+    100%{
+      height: 0;
+    }
+}
+
+.search-box input[required]:invalid,
+.login-block input[required]:invalid {
+    animation: shake .5s linear;
+}
+
+@keyframes shake {
+    0%{
+        background: $input-vaild-bg;
+        margin-left: 0;
+    }
+    25%{
+        margin-left: 1em;
+    }
+    50%{
+        background: $input-vaild-bg;
+        margin-left: -1em;
+    }
+    75%{
+        margin-left: 1em;
+    }
+    100%{
+        margin-left: 0;
+        background: $input-bg;
+    }
+}
+
+.require-file,
+.create-dir-in input[required]:invalid {
+    animation: shake2 .5s linear;
+}
+
+@keyframes shake2 {
+    0%{
+        background: $input-vaild-bg;
+        margin-left: 0;
+    }
+    25%{
+        margin-left: 1em;
+    }
+    50%{
+        background: $input-vaild-bg;
+        margin-left: -1em;
+    }
+    75%{
+        margin-left: 1em;
+    }
+    100%{
+        margin-left: 0;
+        background: #444;
+    }
+}

@@ -1,0 +1,164 @@
+html{
+    background-color: $background-color;
+	color: $text-color;
+	height: 100%;
+	font-family: DOS, 'Ubuntu', sans-serif;
+}
+
+:focus {
+	outline: none;
+}
+
+h1 {
+	font-family: ka, cursive;
+	font-size: 100px;
+	font-weight: bolder;
+	margin-top: 1em;
+	text-transform: uppercase;
+    color: #444444;
+}
+
+a {
+	text-decoration: none;  
+}
+
+i {
+	text-align: center;
+	color: $icon-color;
+}
+
+header {
+	padding-top: 1em;
+	text-align: center;
+	margin: 0 auto -3em;
+}
+
+/* Table */
+table {
+    background-color: #000;
+	border: 1px solid $table-border-color;
+	padding: 0;
+	margin-top: 0;
+	border-top: 0;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	width: 100%;
+	border-spacing: 0;
+}
+
+td, th {
+	line-height: 30px;
+}
+
+td {
+	border-top: 1px solid $table-border-color;
+}
+
+tr {
+    opacity: 0;
+    
+    &:last-child {
+        border: 0;
+    }
+    &:hover {
+        background: $tr-hover-color;
+    }
+
+    a {
+        color: $link-color;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+thead tr:hover {
+    background: 0;
+}
+
+/* Input */
+form {
+	position: relative;
+}
+
+input {
+	margin: .5em auto;
+	padding: 14px 10px;
+	width: 240px;
+	color: $input-color;
+	background: $input-bg;
+	border-radius: 8px;
+	border: none;
+	font-size: 16px;
+	text-align: center;
+    transition: .6s;
+    font-family: DOS, 'Ubuntu', sans-serif;    
+}
+
+input:focus {
+	border-color:$input-focus-color;
+	width: 300px;
+}
+
+input::placeholder {
+	color: $input-placeholder-color;
+}
+
+input[type=submit]{
+	width: 160px;
+	font-weight: 900;
+    background: none;
+}
+
+input[type=submit]:hover,
+input[type=submit]:focus  {
+	width: 160px;
+}
+
+.login-block .account-box input:-internal-autofill-selected {
+    background-color: none !important;
+    background-image: none !important;
+}
+
+label {
+    background: $input-label-bg;
+    display: inline-block;
+    font-size: 16px;
+	border-radius: 5px;
+	width: 25%;
+    padding: 9px 7px;
+	box-sizing: border-box;
+	margin-top: -37px;
+	float: right;
+    margin-right: 1em;
+}
+
+/* Button */
+button {
+	margin-left: 16px;
+	margin-top: 8px;
+	border: 0;
+	border-radius: 5px;
+	height: 36px;
+	color: $button-text-color;
+	font-size: 16px;
+	font-weight: 900;
+	font-family: DOS, 'Ubuntu', sans-serif;
+}
+
+/* footer */
+
+footer {
+	color: $footer-text-color;
+	text-align: center;
+	padding-bottom: 1em;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    i {
+        color: inherit;
+    }
+}
+
