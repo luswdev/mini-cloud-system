@@ -23,11 +23,6 @@ $config = json_decode(file_get_contents('../_config.json'));
 	</div>
 
 	<?php
-
-	define('BOT_TOKEN', $config->telegram->token);
-	define('API_URL', 'https://api.telegram.org/bot'.BOT_TOKEN.'/');
-	define('chatID', $config->telegram->user_id);
-
 	include_once('../_exec/db.php');
 
 	$sql = "SELECT passwd FROM users_list WHERE account = ?";
@@ -70,15 +65,6 @@ $config = json_decode(file_get_contents('../_config.json'));
 		$stmt->close();
 
 		$_SESSION['login_id'] = $id;
-		
-		$reply  = "💀`Sign in WARNING`💀".'%0A'.'%0A'.
-				"Someone sign in successfully, is you?🤔🤔".'%0A'.'%0A'."---".'%0A'.
-				"🖥️ *IP:* `".$ip."`".'%0A'.
-				"💩 *User:* _".$_POST['account']."_".'%0A'.
-				"👀 [See more detail](https://file.haterain.app/phpmyadmin)";
-
-		$sendto = API_URL."sendmessage?chat_id=".chatID."&text=".$reply."&parse_mode=markdown";
-		file_get_contents($sendto);
 
 		header("Location:/");
 	}
@@ -91,16 +77,6 @@ $config = json_decode(file_get_contents('../_config.json'));
 		$stmt->bind_param('sss', $_POST['account'], date("Y-n-d H:i:s"), $ip);
 		$stmt->execute();
 		$stmt->close();
-		
-		$reply  = "😈`Attack WARNING`😈".'%0A'.'%0A'.
-				"Someone trying to sign in, but failed.".'%0A'.
-				"HA!HA!🤣🤣".'%0A'.'%0A'."---".'%0A'.
-				"🖥️ *IP:* `".$ip."`".'%0A'.
-				"💩 *User:* _".$_POST['account']."_".'%0A'.
-				"👀 [See more detail](https://file.haterain.app/phpmyadmin)";
-
-		$sendto = API_URL."sendmessage?chat_id=".chatID."&text=".$reply."&parse_mode=markdown";
-		file_get_contents($sendto);
 
 		header("Location:/login.php");
 	}
