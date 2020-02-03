@@ -2,14 +2,14 @@
 ob_start();
 session_start();
 
-if ($_SESSION['valid'])
-	header("Location:/");
+if (isset($_SESSION['valid']))
+    header("Location:/");
+    
+$config = json_decode(file_get_contents('_config.json'));
 ?>
 
 <html>
-<head>
 	<?php include_once('_partial/head.php'); ?>
-</head>
 <body>
 
 	<?php include_once('_partial/info_block.php'); ?>
@@ -21,7 +21,7 @@ if ($_SESSION['valid'])
 		<div class="main-inner">
 
 			
-			<form class="login-block" role="form" action="/do_login.php" method='post' autocomplete="off" >
+			<form class="login-block" role="form" action="_partial/do_login.php" method='post' autocomplete="off" >
 				<div class="account-box">
 					<input type="text" placeholder="Account" name="account" autofocus="autofocus" autocapitalize="none" autocomplete="new-password">
 				</div>

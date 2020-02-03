@@ -8,6 +8,8 @@ if (!isset($_SESSION['valid'])){
 	echo "<script>window.location.assign('/logout.php');</script>";
 }
 $_SESSION['pwd']= '/'; 
+
+$config = json_decode(file_get_contents('_config.json'));
 ?>
 
 <html>
@@ -35,7 +37,7 @@ $_SESSION['pwd']= '/';
 					<a href="/"><i class="fas fa-home"></i></a>
 				</span>
 
-				<button class="logout-btn pointer" onclick="javascript:window.location='logout.php'">
+				<button class="logout-btn pointer" onclick="javascript:window.location='_partial/logout.php'">
 					<i class="fas fa-sign-out-alt"></i>
 				</button>
 			</div>

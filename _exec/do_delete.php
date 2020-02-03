@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 
-$config = json_decode(file_get_contents('_config.json'));
+$config = json_decode(file_get_contents('../_config.json'));
 
 $file =  $_POST['file'];
 $file = urldecode($file);

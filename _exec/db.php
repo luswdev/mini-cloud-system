@@ -1,6 +1,4 @@
 <?php
-    $config = json_decode(file_get_contents("_config.json"));
-
     $DBHOST = $config->db->host;
     $DBUSER = $config->db->user;
     $DBPASS = $config->db->pass;

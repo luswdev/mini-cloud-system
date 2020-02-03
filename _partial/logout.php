@@ -2,18 +2,20 @@
 ob_start();
 session_start();
 
-if (!$_SESSION['valid']){
+$config = json_decode(file_get_contents('../_config.json'));
+
+if (!isset($_SESSION['valid'])) {
 	$_SESSION['state']='guest';
 	header("Location:/login.php");
 }
-else{
+else {
 	unset($_SESSION['account']);
 	unset($_SESSION['password']);
 	unset($_SESSION['valid']);
 
 	$_SESSION['state']='logout';
 
-	include_once('_partial/db.php');
+	include_once('../_exec/db.php');
 
 	$sql = "UPDATE `login_log` SET `logout_time` = ? WHERE `login_id` = ? ";
 	$stmt = $mysqli->prepare($sql);
@@ -28,11 +30,10 @@ else{
 }
 
 header('Refresh: 2; URL=/login.php')
-
 ?>
 <html>
 <head>
-	<?php include_once('_partial/head.php'); ?>
+	<?php include_once('../_partial/head.php'); ?>
 </head>
 <body>
 	<div class="logout-text">

@@ -11,9 +11,9 @@ if ($_SESSION=='/'){
 	header("Location:/");
 }
 
-global $pwd;
 $pwd = $_SESSION['pwd'];
 
+$config = json_decode(file_get_contents('_config.json'));
 ?>
 
 <html>
@@ -64,7 +64,7 @@ $pwd = $_SESSION['pwd'];
 					<i class="fas fa-level-up-alt"></i>
 				</button>
 
-				<button class="logout-btn pointer" onclick="javascript:window.location='logout.php'">
+				<button class="logout-btn pointer" onclick="javascript:window.location='_partial/logout.php'">
 					<i class="fas fa-sign-out-alt"></i>
 				</button>
 			</div>

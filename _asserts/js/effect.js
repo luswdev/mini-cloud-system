@@ -146,7 +146,7 @@ $(document).ready(function() {
 		//var should_delete = del_arr[del_arr.length-1];
 
 		$.ajax({
-			url: 'do_delete.php',
+			url: '/_exec/do_delete.php',
 			type: 'post',
 			data: { 'file': should_delete},
 			error: function (xhr) { },
@@ -219,7 +219,7 @@ $(document).ready(function() {
         fd.set('drag-file[]', file[0]);
         for (i=1; i<file.length; i++)
             fd.append('drag-file[]', file[i]);
-        fetch("_partial/drag_upload.php", {
+        fetch("/_exec/drag_upload.php", {
             method: 'POST',
             body: fd,
           }).then(response => {
@@ -277,7 +277,7 @@ $(document).ready(function() {
 
         if ($(this).find('a').hasClass('ftb-dir')){
             $.ajax({
-                url: '_partial/move_file.php',
+                url: '/_exec/move_file.php',
                 type: 'post',
                 data: { 'target': drag_who, 'destination': dest},
                 error: function (xhr) { },
@@ -316,7 +316,7 @@ $(document).ready(function() {
         var $this = $(this);
 
         $.ajax({
-            url: '_partial/move_file.php',
+            url: '/_exec/move_file.php',
             type: 'post',
             data: { 'target': drag_who, 'destination': dest, 'back': back_nest},
             error: function (xhr) { },
@@ -434,14 +434,14 @@ function check_input(){
 function jump_path(path){
 	$.ajax({
 		type: 'POST',
-		url: '_partial/set_session.php',
+		url: '/_exec/set_session.php',
 		data: { 'pwd': path},
 		error: function() {
 			alert('error');
 		},
 		success: function(response) {
 			//calert(response);
-			location.replace('render.php');
+			location.replace('/render.php');
 		},
 	})
 
