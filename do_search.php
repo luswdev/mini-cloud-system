@@ -4,12 +4,12 @@ session_start();
 
 if (!$_SESSION['valid']){
 	$_SESSION['state']='guest';
-	header("Location:/login.php");
+	header("Location:/_partial/logout.php");
 }
 
-global $pwd;
 $pwd = $_SESSION['pwd'];
 
+$config = json_decode(file_get_contents('_config.json'));
 ?>
 
 <html>

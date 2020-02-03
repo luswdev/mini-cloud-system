@@ -4,7 +4,7 @@ session_start();
 
 if (!$_SESSION['valid']){
 	$_SESSION['state']='guest';
-	echo "<script>window.location.assign('/logout.php');</script>";
+	header("Location:/_partial/logout.php");
 }
 
 if ($_SESSION=='/'){

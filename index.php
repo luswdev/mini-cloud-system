@@ -1,11 +1,10 @@
-
 <?php
 ob_start();
 session_start();
 
 if (!isset($_SESSION['valid'])){
 	$_SESSION['state']='guest';
-	echo "<script>window.location.assign('/logout.php');</script>";
+	header("Location:/_partial/logout.php");
 }
 $_SESSION['pwd']= '/'; 
 
