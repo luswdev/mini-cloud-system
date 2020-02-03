@@ -4,7 +4,7 @@
 
 if (isset($_SESSION['state'])) {
 	if ($_SESSION['state'] == 'success'){
-		include_once('_partial/db.php');
+		include_once('_exec/db.php');
 
 		$sql = "SELECT `login_time` FROM `login_log` WHERE `account` = ? ORDER BY `login_id` desc";
 		$stmt = $mysqli->prepare($sql);
