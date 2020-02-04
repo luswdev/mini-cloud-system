@@ -2,9 +2,9 @@
 ob_start();
 session_start();
 
-if (!isset($_SESSION["valid"])) {
-	$_SESSION["state"]="guest";
-	header("Location:/_partial/logout.php");
+if (!isset($_SESSION['valid']) ||  !$_SESSION['valid']){
+	$_SESSION['state']='guest';
+	header("Location:/login.php");
 }
 
 $pwd = $_SESSION["pwd"];
