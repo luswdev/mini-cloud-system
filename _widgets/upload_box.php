@@ -1,4 +1,4 @@
-<div class="file-upload-box">
+<div class="file-upload-box" id="file-upload-box">
 	<form class="file-upload" method="post" name="fileUpload" action="_exec/upload.php" method="post" enctype="multipart/form-data">
 		<h4>Select file to upload:</h4>
 		<div class="file-upload-btn-box">

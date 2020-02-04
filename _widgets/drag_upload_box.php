@@ -1,4 +1,4 @@
-<div class="drag-upload-box">
+<div class="drag-upload-box" id="drag-upload-box">
     <div class="drag-upload">
 	    <span>Drop file here to upload.</span>
     </div>

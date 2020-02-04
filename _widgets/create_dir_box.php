@@ -1,4 +1,4 @@
-<div class="create-dir-box">
+<div class="create-dir-box" id="create-dir-box">
 	<form class="create-dir-in" method="post" action="_exec/create_dir.php" method="post" enctype="multipart/form-data">
 		<h4>Enter a directory name.</h4>
         <input type="text" name="dir_name" id="dir_name" autocomplete="off" autofocus="autofocus" >

@@ -1,7 +1,7 @@
-<div class="download-check-box">
+<div class="download-check-box" id="download-check-box">
 	<h4></h4>
 	<div class="check-btn-box">
-		<button class="check-btn"  onclick="close_box()"><a>Yes</a></button>
-		<button class="check-btn"  onclick="close_box()">No</button>
+		<button class="check-btn"  onclick="close_box_generic($('#download-check-box'), true);"><a>Yes</a></button>
+		<button class="check-btn"  onclick="close_box_generic($('#download-check-box'), true);">No</button>
     </div>
 </div>
