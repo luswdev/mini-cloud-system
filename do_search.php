@@ -50,7 +50,7 @@ $config = json_decode(file_get_contents("_config.json"));
 					});
 				</script>
                 
-				<button class="logout-btn pointer" onclick="javascript:window.location="logout.php"">
+				<button class="logout-btn pointer" onclick="javascript:window.location="/_partial/logout.php">
 					<i class="fas fa-sign-out-alt"></i>
 				</button>
 			</div>
@@ -100,18 +100,18 @@ $config = json_decode(file_get_contents("_config.json"));
                                         if (!is_file($target_dir."/".$file)){
                                             echo '<td class="icon icon-folder"><i class="fas fa-folder pointer"></i></td>';
 											echo '<td class="name"><a href="/render.php?links=.'.$target_dir.'/'.$file.'">'.$notmatchstr.'</a></td>';
-											echo '<td class="path"><a onclick="jump_path(`'.$dir_p.'/'.$file.'`)">~$dir/$file</a></td>';
+											echo '<td class="path"><a onclick="jump_path(`'.$dir_p.'/'.$file.'`)">~'.$dir.'/'.$file.'</a></td>';
                                             echo '<td class="download"></td>';
                                         }
                                         else {
                                             echo '<td class="icon icon-file"><i class="fas fa-file-alt pointer"></i></td>';
                                             echo '<td class="name"><a href="'.$target_dir.'/'.$file.'" target="_blank">'.$notmatchstr.'</span></a></td>';
 											echo '<td class="path"><a onclick="jump_path(`'.$dir_p.'`)">~'.$dir.'</a></td>';
-                                            echo '<td class="download" onclick="open_box(`$target_dir/$file`)"><i class="fas fa-cloud-download-alt pointer"></i></td>';
+                                            echo '<td class="download" onclick="open_box(`'.$target_dir.'/'.$file.'`)"><i class="fas fa-cloud-download-alt pointer"></i></td>';
                                         }
                                         
                                         $ftime=date("Y/m/d",filemtime($target_dir."/".$file));
-                                        echo '<td class="time"><span class="file-meta">$ftime</span></td></tr>';
+                                        echo '<td class="time"><span class="file-meta">'.$ftime.'</span></td></tr>';
                                     }
                                     if (is_dir($file) && $file[0] != "." && $file[0] != "_" ){
                                         searching_file($target_dir."/".$file,$targer_file);
