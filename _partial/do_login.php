@@ -2,11 +2,11 @@
 ob_start();
 session_start();
 
-$config = json_decode(file_get_contents('../_config.json'));
+$config = json_decode(file_get_contents("../_config.json"));
 ?>
 
 <html>
-    <?php include_once('../_partial/head.php'); ?>
+    <?php include_once("../_partial/head.php"); ?>
 <body>
 	<div class="logout-text">
 		<div class="loading">
@@ -23,38 +23,39 @@ $config = json_decode(file_get_contents('../_config.json'));
 	</div>
 
 	<?php
-	include_once('../_exec/db.php');
+	include_once("../_exec/db.php");
 
 	$sql = "SELECT passwd FROM users_list WHERE account = ?";
 	$stmt = $mysqli->prepare($sql);
-	$stmt->bind_param('s',$_POST['account']);
+	$stmt->bind_param("s",$_POST["account"]);
 	$stmt->execute();
 	$stmt->bind_result($passwd);
 	$stmt->fetch();
 	$stmt->close();
 
-	if (!empty($_SERVER["HTTP_CLIENT_IP"])){
+    /* get user ip */
+	if (!empty($_SERVER["HTTP_CLIENT_IP"])) {
 		$ip = $_SERVER["HTTP_CLIENT_IP"];
-	}else if(!empty($_SERVER["HTTP_X_FORWARDED_FOR"])){
+	} else if(!empty($_SERVER["HTTP_X_FORWARDED_FOR"])) {
 		$ip = $_SERVER["HTTP_X_FORWARDED_FOR"];
-	}else{
+	} else {
 		$ip = $_SERVER["REMOTE_ADDR"];
 	}
 
-	$_SESSION['ip'] = $ip;
-    $_SESSION['account'] = $_POST['account'];
+	$_SESSION["ip"] = $ip;
+    $_SESSION["account"] = $_POST["account"];
 
-	if ( $passwd == hash('sha256', $_POST['password']) && $_POST['password']!='' ){
+	if (isset($_POST["password"]) && $passwd == hash("sha256", $_POST["password"])){
 
-		$_SESSION['valid'] = true;
-		$_SESSION['timeout'] = time();
-        $_SESSION['state'] = 'success';
+		$_SESSION["valid"] = true;
+		$_SESSION["timeout"] = time();
+        $_SESSION["state"] = "success";
         
         $now = date("Y-n-d H:i:s");
 		
-		$insert_sql = "INSERT INTO `login_log` ( account, login_time, login_ip) VALUES (?,?,?)";
+		$insert_sql = "INSERT INTO login_log(account, login_time, login_ip) VALUES (?,?,?)";
 		$stmt = $mysqli->prepare($insert_sql);
-		$stmt->bind_param('sss', $_POST['account'], $now, $ip);
+		$stmt->bind_param("sss", $_POST["account"], $now, $ip);
 		$stmt->execute();
 
 		$find_id = "SELECT LAST_INSERT_ID()";
@@ -64,17 +65,17 @@ $config = json_decode(file_get_contents('../_config.json'));
 		$stmt->fetch();
 		$stmt->close();
 
-		$_SESSION['login_id'] = $id;
+		$_SESSION["login_id"] = $id;
 
 		header("Location:/");
 	}
 	else {
-		$_SESSION['valid'] = false;
-		$_SESSION['state'] = 'bad';
+		$_SESSION["valid"] = false;
+		$_SESSION["state"] = "bad";
 
-		$insert_sql = "INSERT INTO `login_error_log` ( trying_account, trying_time, trying_ip) VALUES (?,?,?)";
+		$insert_sql = "INSERT INTO login_error_log( trying_account, trying_time, trying_ip) VALUES (?,?,?)";
 		$stmt = $mysqli->prepare($insert_sql);
-		$stmt->bind_param('sss', $_POST['account'], date("Y-n-d H:i:s"), $ip);
+		$stmt->bind_param("sss", $_POST["account"], date("Y-n-d H:i:s"), $ip);
 		$stmt->execute();
 		$stmt->close();
 

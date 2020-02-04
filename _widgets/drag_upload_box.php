@@ -6,6 +6,6 @@
 
     <form class="drag-file-upload" name="drag" method="post" action="_partial/drag_upload.php" method="post" enctype="multipart/form-data">
 		<input type="file" name="drag-file[]" multiple id="drag-file" style="display:none;">
-		<input type="text" name="pwd" id="drag-file-pwd" value="<?php echo $_SESSION['pwd'] ?>" style="display:none;">
+		<input type="text" name="pwd" id="drag-file-pwd" value="<?php echo $_SESSION["pwd"] ?>" style="display:none;">
 	</form>
 </div>

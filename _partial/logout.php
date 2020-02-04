@@ -2,38 +2,37 @@
 ob_start();
 session_start();
 
-$config = json_decode(file_get_contents('../_config.json'));
+$config = json_decode(file_get_contents("../_config.json"));
 
-if (!isset($_SESSION['valid'])) {
-	$_SESSION['state']='guest';
+if (!isset($_SESSION["valid"])) {
+	$_SESSION["state"]="guest";
 	header("Location:/login.php");
 }
 else {
-	unset($_SESSION['account']);
-	unset($_SESSION['password']);
-	unset($_SESSION['valid']);
+	unset($_SESSION["account"]);
+	unset($_SESSION["password"]);
+	unset($_SESSION["valid"]);
 
-	$_SESSION['state']='logout';
+	$_SESSION["state"]="logout";
 
-	include_once('../_exec/db.php');
+	include_once("../_exec/db.php");
 
-	$sql = "UPDATE `login_log` SET `logout_time` = ? WHERE `login_id` = ? ";
+	$sql = "UPDATE login_log SET logout_time = ? WHERE login_id = ? ";
 	$stmt = $mysqli->prepare($sql);
 	$times=date("Y-n-d H:i:s");
-	$stmt->bind_param('si', $times ,$_SESSION['login_id']);
+	$stmt->bind_param("si", $times ,$_SESSION["login_id"]);
 	$stmt->execute();
 	$stmt->close();
 
-	unset($_SESSION['login_id']);
-	unset($_SESSION['pwd']);
-
+	unset($_SESSION["login_id"]);
+	unset($_SESSION["pwd"]);
 }
 
-header('Refresh: 2; URL=/login.php')
+header("Refresh: 2; URL=/login.php")
 ?>
 <html>
 <head>
-	<?php include_once('../_partial/head.php'); ?>
+	<?php include_once("../_partial/head.php"); ?>
 </head>
 <body>
 	<div class="logout-text">

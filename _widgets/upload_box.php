@@ -11,7 +11,7 @@
 			</label>
 		</div>
 		<div class="check-btn-box">
-			<button class="ready-upload-btn check-btn" type='submit'>Upload</button>
+			<button class="ready-upload-btn check-btn" type="submit">Upload</button>
 			<button class="close-upload-btn check-btn">Cancel</button>
 		</div>
 	</form>
