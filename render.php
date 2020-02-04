@@ -7,7 +7,7 @@ if (!$_SESSION['valid']){
 	header("Location:/_partial/logout.php");
 }
 
-if ($_SESSION=='/'){
+if ($_SESSION['pwd'] == '/'){
 	header("Location:/");
 }
 
